@@ -18,6 +18,16 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         window.rootViewController = SignInViewController()
         window.makeKeyAndVisible()
         self.window = window
+        
+        let userReq = SignUpUserRequest(name: "Elina", email: "hello@gmail.com", password: "testpassword")
+        AuthService.shared.signUpUser(with: userReq) { res, err in
+            if let err = err{
+                print(err.localizedDescription)
+                return
+            }
+            
+            print("was registered: ", res)
+        }
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {

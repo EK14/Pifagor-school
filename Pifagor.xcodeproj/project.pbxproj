@@ -10,6 +10,10 @@
 		3D618FBC2B14AAFC005BFFFC /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3D618FBB2B14AAFC005BFFFC /* GoogleService-Info.plist */; };
 		3D618FBF2B14ABD8005BFFFC /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 3D618FBE2B14ABD8005BFFFC /* FirebaseAuth */; };
 		3D618FC12B14ACFD005BFFFC /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D618FC02B14ACFD005BFFFC /* AuthService.swift */; };
+		3D618FC62B14BF98005BFFFC /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D618FC52B14BF98005BFFFC /* SignUpViewController.swift */; };
+		3D618FC82B14BFAB005BFFFC /* SignUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D618FC72B14BFAB005BFFFC /* SignUpView.swift */; };
+		3D618FCA2B14C4E5005BFFFC /* SignUpUserRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D618FC92B14C4E5005BFFFC /* SignUpUserRequest.swift */; };
+		3D618FCD2B14C9D8005BFFFC /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = 3D618FCC2B14C9D8005BFFFC /* FirebaseFirestore */; };
 		3DA881442AE91A31009D5E45 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DA881432AE91A31009D5E45 /* AppDelegate.swift */; };
 		3DA881462AE91A31009D5E45 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DA881452AE91A31009D5E45 /* SceneDelegate.swift */; };
 		3DA881482AE91A31009D5E45 /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DA881472AE91A31009D5E45 /* SignInViewController.swift */; };
@@ -21,6 +25,9 @@
 /* Begin PBXFileReference section */
 		3D618FBB2B14AAFC005BFFFC /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		3D618FC02B14ACFD005BFFFC /* AuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
+		3D618FC52B14BF98005BFFFC /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
+		3D618FC72B14BFAB005BFFFC /* SignUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpView.swift; sourceTree = "<group>"; };
+		3D618FC92B14C4E5005BFFFC /* SignUpUserRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpUserRequest.swift; sourceTree = "<group>"; };
 		3DA881402AE91A31009D5E45 /* Pifagor.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Pifagor.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3DA881432AE91A31009D5E45 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3DA881452AE91A31009D5E45 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -37,6 +44,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3D618FBF2B14ABD8005BFFFC /* FirebaseAuth in Frameworks */,
+				3D618FCD2B14C9D8005BFFFC /* FirebaseFirestore in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -64,8 +72,17 @@
 		3D618FC42B14BDFB005BFFFC /* SignUp */ = {
 			isa = PBXGroup;
 			children = (
+				3D618FC52B14BF98005BFFFC /* SignUpViewController.swift */,
+				3D618FC72B14BFAB005BFFFC /* SignUpView.swift */,
 			);
 			path = SignUp;
+			sourceTree = "<group>";
+		};
+		3D618FCB2B14C9D8005BFFFC /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 		3DA881372AE91A31009D5E45 = {
@@ -73,6 +90,7 @@
 			children = (
 				3DA881422AE91A31009D5E45 /* Pifagor */,
 				3DA881412AE91A31009D5E45 /* Products */,
+				3D618FCB2B14C9D8005BFFFC /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -99,6 +117,7 @@
 		3DA881592AE9410B009D5E45 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				3D618FC92B14C4E5005BFFFC /* SignUpUserRequest.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -141,6 +160,7 @@
 			name = Pifagor;
 			packageProductDependencies = (
 				3D618FBE2B14ABD8005BFFFC /* FirebaseAuth */,
+				3D618FCC2B14C9D8005BFFFC /* FirebaseFirestore */,
 			);
 			productName = Pifagor;
 			productReference = 3DA881402AE91A31009D5E45 /* Pifagor.app */;
@@ -200,8 +220,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3D618FCA2B14C4E5005BFFFC /* SignUpUserRequest.swift in Sources */,
+				3D618FC62B14BF98005BFFFC /* SignUpViewController.swift in Sources */,
 				3DA881482AE91A31009D5E45 /* SignInViewController.swift in Sources */,
 				3DA881442AE91A31009D5E45 /* AppDelegate.swift in Sources */,
+				3D618FC82B14BFAB005BFFFC /* SignUpView.swift in Sources */,
 				3D618FC12B14ACFD005BFFFC /* AuthService.swift in Sources */,
 				3DF912A72AF66C6A00BFCFF0 /* SignInView.swift in Sources */,
 				3DA881462AE91A31009D5E45 /* SceneDelegate.swift in Sources */,
@@ -429,6 +452,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 3D618FBD2B14ABD8005BFFFC /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
 			productName = FirebaseAuth;
+		};
+		3D618FCC2B14C9D8005BFFFC /* FirebaseFirestore */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 3D618FBD2B14ABD8005BFFFC /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseFirestore;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
