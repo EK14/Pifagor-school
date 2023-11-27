@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		3D618FBC2B14AAFC005BFFFC /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3D618FBB2B14AAFC005BFFFC /* GoogleService-Info.plist */; };
 		3D618FBF2B14ABD8005BFFFC /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 3D618FBE2B14ABD8005BFFFC /* FirebaseAuth */; };
+		3D618FC12B14ACFD005BFFFC /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D618FC02B14ACFD005BFFFC /* AuthService.swift */; };
 		3DA881442AE91A31009D5E45 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DA881432AE91A31009D5E45 /* AppDelegate.swift */; };
 		3DA881462AE91A31009D5E45 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DA881452AE91A31009D5E45 /* SceneDelegate.swift */; };
 		3DA881482AE91A31009D5E45 /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DA881472AE91A31009D5E45 /* SignInViewController.swift */; };
@@ -19,6 +20,7 @@
 
 /* Begin PBXFileReference section */
 		3D618FBB2B14AAFC005BFFFC /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		3D618FC02B14ACFD005BFFFC /* AuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
 		3DA881402AE91A31009D5E45 /* Pifagor.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Pifagor.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3DA881432AE91A31009D5E45 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3DA881452AE91A31009D5E45 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -65,6 +67,7 @@
 				3DA881592AE9410B009D5E45 /* Models */,
 				3DA881582AE940FF009D5E45 /* Controllers */,
 				3DA881572AE940D3009D5E45 /* Views */,
+				3D618FC02B14ACFD005BFFFC /* AuthService.swift */,
 			);
 			path = Pifagor;
 			sourceTree = "<group>";
@@ -191,6 +194,7 @@
 			files = (
 				3DA881482AE91A31009D5E45 /* SignInViewController.swift in Sources */,
 				3DA881442AE91A31009D5E45 /* AppDelegate.swift in Sources */,
+				3D618FC12B14ACFD005BFFFC /* AuthService.swift in Sources */,
 				3DF912A72AF66C6A00BFCFF0 /* SignInView.swift in Sources */,
 				3DA881462AE91A31009D5E45 /* SceneDelegate.swift in Sources */,
 			);

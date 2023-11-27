@@ -7,7 +7,14 @@
 
 import UIKit
 
+enum button{
+    case SignIn
+    case SignUp
+}
+
 class SignInView: UIView {
+    
+    var buttonTouched: ((button)->Void)?
     
     private lazy var image: UIImageView = {
         let label = UIImageView()
@@ -61,6 +68,19 @@ class SignInView: UIView {
         btn.translatesAutoresizingMaskIntoConstraints = false
         btn.setTitle("Войти", for: .normal)
         btn.layer.cornerRadius = 10
+        btn.addTarget(self, action: #selector(signInBtnDidTouched), for: .touchUpInside)
+        return btn
+    }()
+    
+    private lazy var signUpBtn: UIButton = {
+        let btn = UIButton()
+        btn.backgroundColor = .white
+        btn.translatesAutoresizingMaskIntoConstraints = false
+        btn.setTitle("Новый пользователь? Создайте аккаунт.", for: .normal)
+        btn.layer.cornerRadius = 10
+        btn.setTitleColor(UIColor(named: "orange"), for: .normal)
+        btn.titleLabel?.font =  UIFont.systemFont(ofSize: 15, weight: .bold)
+        btn.addTarget(self, action: #selector(signUpBtnDidTouched), for: .touchUpInside)
         return btn
     }()
 
@@ -72,6 +92,7 @@ class SignInView: UIView {
         setupSignInYourAccountLabel()
         setupTextFields()
         setupBtn()
+        setupSignUpBtn()
     }
     
     required init?(coder: NSCoder) {
@@ -87,7 +108,7 @@ class SignInView: UIView {
     private func setupImage(){
         addSubview(image)
         NSLayoutConstraint.activate([
-            image.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 40),
+            image.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 50),
             image.centerXAnchor.constraint(equalTo: centerXAnchor),
             image.widthAnchor.constraint(equalToConstant: 108),
             image.heightAnchor.constraint(equalToConstant: 100)
@@ -114,7 +135,7 @@ class SignInView: UIView {
         addSubview(usernameTextField)
         addSubview(password)
         NSLayoutConstraint.activate([
-            usernameTextField.topAnchor.constraint(equalTo: signInYourAccountLabel.bottomAnchor, constant: 50),
+            usernameTextField.topAnchor.constraint(equalTo: signInYourAccountLabel.bottomAnchor, constant: 30),
             usernameTextField.centerXAnchor.constraint(equalTo: centerXAnchor),
             usernameTextField.heightAnchor.constraint(equalToConstant: 50),
             usernameTextField.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 30),
@@ -137,6 +158,26 @@ class SignInView: UIView {
             signInBtn.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 30),
             signInBtn.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -30),
         ])
+    }
+    
+    private func setupSignUpBtn(){
+        addSubview(signUpBtn)
+        NSLayoutConstraint.activate([
+            signUpBtn.topAnchor.constraint(equalTo: signInBtn.bottomAnchor, constant: 5),
+            signUpBtn.centerXAnchor.constraint(equalTo: centerXAnchor)
+        ])
+    }
+    
+    // MARK: Actions
+    
+    @objc
+    private func signInBtnDidTouched(){
+        buttonTouched?(button.SignIn)
+    }
+    
+    @objc
+    private func signUpBtnDidTouched(){
+        buttonTouched?(button.SignUp)
     }
     
 }
