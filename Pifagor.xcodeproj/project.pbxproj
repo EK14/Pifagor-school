@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3D618FBC2B14AAFC005BFFFC /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3D618FBB2B14AAFC005BFFFC /* GoogleService-Info.plist */; };
+		3D618FBF2B14ABD8005BFFFC /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 3D618FBE2B14ABD8005BFFFC /* FirebaseAuth */; };
 		3DA881442AE91A31009D5E45 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DA881432AE91A31009D5E45 /* AppDelegate.swift */; };
 		3DA881462AE91A31009D5E45 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DA881452AE91A31009D5E45 /* SceneDelegate.swift */; };
 		3DA881482AE91A31009D5E45 /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DA881472AE91A31009D5E45 /* SignInViewController.swift */; };
@@ -16,6 +18,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		3D618FBB2B14AAFC005BFFFC /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		3DA881402AE91A31009D5E45 /* Pifagor.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Pifagor.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3DA881432AE91A31009D5E45 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3DA881452AE91A31009D5E45 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -31,6 +34,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3D618FBF2B14ABD8005BFFFC /* FirebaseAuth in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -92,6 +96,7 @@
 			isa = PBXGroup;
 			children = (
 				3DA881512AE91A32009D5E45 /* Info.plist */,
+				3D618FBB2B14AAFC005BFFFC /* GoogleService-Info.plist */,
 				3DA8814E2AE91A32009D5E45 /* LaunchScreen.storyboard */,
 				3DA8814C2AE91A32009D5E45 /* Assets.xcassets */,
 			);
@@ -123,6 +128,9 @@
 			dependencies = (
 			);
 			name = Pifagor;
+			packageProductDependencies = (
+				3D618FBE2B14ABD8005BFFFC /* FirebaseAuth */,
+			);
 			productName = Pifagor;
 			productReference = 3DA881402AE91A31009D5E45 /* Pifagor.app */;
 			productType = "com.apple.product-type.application";
@@ -151,6 +159,9 @@
 				Base,
 			);
 			mainGroup = 3DA881372AE91A31009D5E45;
+			packageReferences = (
+				3D618FBD2B14ABD8005BFFFC /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+			);
 			productRefGroup = 3DA881412AE91A31009D5E45 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -166,6 +177,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3DA881502AE91A32009D5E45 /* LaunchScreen.storyboard in Resources */,
+				3D618FBC2B14AAFC005BFFFC /* GoogleService-Info.plist in Resources */,
 				3DA8814D2AE91A32009D5E45 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -388,6 +400,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		3D618FBD2B14ABD8005BFFFC /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/firebase/firebase-ios-sdk";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 10.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		3D618FBE2B14ABD8005BFFFC /* FirebaseAuth */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 3D618FBD2B14ABD8005BFFFC /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAuth;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 3DA881382AE91A31009D5E45 /* Project object */;
 }
