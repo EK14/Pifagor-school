@@ -43,6 +43,31 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3D618FC22B14BDA6005BFFFC /* Screens */ = {
+			isa = PBXGroup;
+			children = (
+				3D618FC42B14BDFB005BFFFC /* SignUp */,
+				3D618FC32B14BDBB005BFFFC /* SignIn */,
+			);
+			path = Screens;
+			sourceTree = "<group>";
+		};
+		3D618FC32B14BDBB005BFFFC /* SignIn */ = {
+			isa = PBXGroup;
+			children = (
+				3DA881472AE91A31009D5E45 /* SignInViewController.swift */,
+				3DF912A62AF66C6A00BFCFF0 /* SignInView.swift */,
+			);
+			path = SignIn;
+			sourceTree = "<group>";
+		};
+		3D618FC42B14BDFB005BFFFC /* SignUp */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = SignUp;
+			sourceTree = "<group>";
+		};
 		3DA881372AE91A31009D5E45 = {
 			isa = PBXGroup;
 			children = (
@@ -62,30 +87,13 @@
 		3DA881422AE91A31009D5E45 /* Pifagor */ = {
 			isa = PBXGroup;
 			children = (
+				3D618FC02B14ACFD005BFFFC /* AuthService.swift */,
+				3D618FC22B14BDA6005BFFFC /* Screens */,
 				3DA8815B2AE9411B009D5E45 /* Core */,
 				3DA8815A2AE94113009D5E45 /* Resources */,
 				3DA881592AE9410B009D5E45 /* Models */,
-				3DA881582AE940FF009D5E45 /* Controllers */,
-				3DA881572AE940D3009D5E45 /* Views */,
-				3D618FC02B14ACFD005BFFFC /* AuthService.swift */,
 			);
 			path = Pifagor;
-			sourceTree = "<group>";
-		};
-		3DA881572AE940D3009D5E45 /* Views */ = {
-			isa = PBXGroup;
-			children = (
-				3DF912A62AF66C6A00BFCFF0 /* SignInView.swift */,
-			);
-			path = Views;
-			sourceTree = "<group>";
-		};
-		3DA881582AE940FF009D5E45 /* Controllers */ = {
-			isa = PBXGroup;
-			children = (
-				3DA881472AE91A31009D5E45 /* SignInViewController.swift */,
-			);
-			path = Controllers;
 			sourceTree = "<group>";
 		};
 		3DA881592AE9410B009D5E45 /* Models */ = {
