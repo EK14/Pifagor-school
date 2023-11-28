@@ -53,4 +53,25 @@ class AuthService{
                 }
         }
     }
+    
+    public func signIn(with userRequest: SignInUserRequest, completion: @escaping (Error?) -> Void){
+        Auth.auth().signIn(withEmail: userRequest.email, password: userRequest.password) { res, err in
+            if let error = err{
+                completion(err)
+                return
+            }
+            else{
+                completion(nil)
+            }
+        }
+    }
+    
+    public func signOut(completion: @escaping (Error?) -> Void){
+        do{
+            try Auth.auth().signOut()
+            completion(nil)
+        } catch let error {
+            completion(error)
+        }
+    }
 }

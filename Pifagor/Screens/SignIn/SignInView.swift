@@ -108,7 +108,7 @@ class SignInView: UIView {
     private func setupImage(){
         addSubview(image)
         NSLayoutConstraint.activate([
-            image.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 50),
+            image.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 15),
             image.centerXAnchor.constraint(equalTo: centerXAnchor),
             image.widthAnchor.constraint(equalToConstant: 108),
             image.heightAnchor.constraint(equalToConstant: 100)
