@@ -15,11 +15,6 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         
-//        AuthService.shared.signOut { err in
-//            if let err = err {
-//                print(err.localizedDescription)
-//            }
-//        }
         self.setupWindow(with: scene)
         checkAuth()
         

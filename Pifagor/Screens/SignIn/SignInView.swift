@@ -14,7 +14,7 @@ enum button{
 
 class SignInView: UIView {
     
-    var buttonTouched: ((button)->Void)?
+    var buttonTouched: ((button, String, String)->Void)?
     
     private lazy var image: UIImageView = {
         let label = UIImageView()
@@ -172,12 +172,12 @@ class SignInView: UIView {
     
     @objc
     private func signInBtnDidTouched(){
-        buttonTouched?(button.SignIn)
+        buttonTouched?(button.SignIn, usernameTextField.text!, password.text!)
     }
     
     @objc
     private func signUpBtnDidTouched(){
-        buttonTouched?(button.SignUp)
+        buttonTouched?(button.SignUp, "", "")
     }
     
 }

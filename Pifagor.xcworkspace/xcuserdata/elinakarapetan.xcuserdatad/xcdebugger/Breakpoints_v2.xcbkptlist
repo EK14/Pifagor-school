@@ -1,0 +1,198 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Bucket
+   uuid = "C052A9E2-F61F-4E30-9099-7E1A5ABAB917"
+   type = "0"
+   version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "47B4A24D-A32F-4EFA-A451-38BB62B8C2AD"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Pifagor/Screens/SignIn/SignInViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "32"
+            endingLineNumber = "32"
+            landmarkName = "signIn(email:password:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "959D556D-1436-40B5-93A5-B96FD7CA0A9C"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Pifagor/Screens/SignIn/SignInViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "39"
+            endingLineNumber = "39"
+            landmarkName = "signIn(email:password:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "959D556D-1436-40B5-93A5-B96FD7CA0A9C - bf4a158975e40297"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Pifagor.SignInViewController.one(email: Swift.Optional&lt;Swift.String&gt;, password: Swift.Optional&lt;Swift.String&gt;) -&gt; ()"
+                  moduleName = "Pifagor"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/elinakarapetan/Developer/Pifagor/Pifagor/Screens/SignIn/SignInViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "39"
+                  endingLineNumber = "39"
+                  offsetFromSymbolStart = "328">
+               </Location>
+               <Location
+                  uuid = "959D556D-1436-40B5-93A5-B96FD7CA0A9C - bf4a158975e40297"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Pifagor.SignInViewController.one(email: Swift.Optional&lt;Swift.String&gt;, password: Swift.Optional&lt;Swift.String&gt;) -&gt; ()"
+                  moduleName = "Pifagor"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/elinakarapetan/Developer/Pifagor/Pifagor/Screens/SignIn/SignInViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "39"
+                  endingLineNumber = "39"
+                  offsetFromSymbolStart = "356">
+               </Location>
+               <Location
+                  uuid = "959D556D-1436-40B5-93A5-B96FD7CA0A9C - 34b17495aa1c1b86"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.Optional&lt;Swift.Error&gt;) -&gt; () in Pifagor.SignInViewController.one(email: Swift.Optional&lt;Swift.String&gt;, password: Swift.Optional&lt;Swift.String&gt;) -&gt; ()"
+                  moduleName = "Pifagor"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/elinakarapetan/Developer/Pifagor/Pifagor/Screens/SignIn/SignInViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "40"
+                  endingLineNumber = "40"
+                  offsetFromSymbolStart = "44">
+               </Location>
+               <Location
+                  uuid = "959D556D-1436-40B5-93A5-B96FD7CA0A9C - bf4a158975e40297"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Pifagor.SignInViewController.one(email: Swift.Optional&lt;Swift.String&gt;, password: Swift.Optional&lt;Swift.String&gt;) -&gt; ()"
+                  moduleName = "Pifagor"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/elinakarapetan/Developer/Pifagor/Pifagor/Screens/SignIn/SignInViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "39"
+                  endingLineNumber = "39"
+                  offsetFromSymbolStart = "468">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "1A466A45-5217-464A-B236-5F7FDC09697A"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Pifagor/Screens/SignIn/SignInViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "36"
+            endingLineNumber = "36"
+            landmarkName = "signIn(email:password:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "1A466A45-5217-464A-B236-5F7FDC09697A - 9921f0c7d86609ed"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Pifagor.SignInViewController.one(email: Swift.String, password: Swift.String) -&gt; ()"
+                  moduleName = "Pifagor"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/elinakarapetan/Developer/Pifagor/Pifagor/Screens/SignIn/SignInViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "36"
+                  endingLineNumber = "36"
+                  offsetFromSymbolStart = "408">
+               </Location>
+               <Location
+                  uuid = "1A466A45-5217-464A-B236-5F7FDC09697A - 9921f0c7d86609ed"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Pifagor.SignInViewController.one(email: Swift.String, password: Swift.String) -&gt; ()"
+                  moduleName = "Pifagor"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/elinakarapetan/Developer/Pifagor/Pifagor/Screens/SignIn/SignInViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "36"
+                  endingLineNumber = "36"
+                  offsetFromSymbolStart = "500">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "E62C912C-6811-4E7E-A3C7-6A170ABE25DD"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Pifagor/Screens/SignIn/SignInViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "43"
+            endingLineNumber = "43"
+            landmarkName = "signIn(email:password:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "E62C912C-6811-4E7E-A3C7-6A170ABE25DD - 1161018ad0f915b4"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.Optional&lt;Swift.Error&gt;) -&gt; () in Pifagor.SignInViewController.signIn(email: Swift.String, password: Swift.String) -&gt; ()"
+                  moduleName = "Pifagor"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/elinakarapetan/Developer/Pifagor/Pifagor/Screens/SignIn/SignInViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "43"
+                  endingLineNumber = "43"
+                  offsetFromSymbolStart = "132">
+               </Location>
+               <Location
+                  uuid = "E62C912C-6811-4E7E-A3C7-6A170ABE25DD - 1161018ad0f915b4"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.Optional&lt;Swift.Error&gt;) -&gt; () in Pifagor.SignInViewController.signIn(email: Swift.String, password: Swift.String) -&gt; ()"
+                  moduleName = "Pifagor"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/elinakarapetan/Developer/Pifagor/Pifagor/Screens/SignIn/SignInViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "43"
+                  endingLineNumber = "43"
+                  offsetFromSymbolStart = "208">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
+</Bucket>
