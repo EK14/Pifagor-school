@@ -40,10 +40,10 @@ class SignInView: UIView {
         return signInYourAccountLabel
     }()
     
-    private lazy var usernameTextField: UITextField = {
+    private lazy var emailTextField: UITextField = {
         let username = UITextField()
         username.translatesAutoresizingMaskIntoConstraints = false
-        username.placeholder = "Имя пользователя"
+        username.placeholder = "Email"
         username.backgroundColor = UIColor(named: "lightgray")
         username.layer.cornerRadius = 10
         username.leftViewMode = .always
@@ -76,7 +76,7 @@ class SignInView: UIView {
         let btn = UIButton()
         btn.backgroundColor = .white
         btn.translatesAutoresizingMaskIntoConstraints = false
-        btn.setTitle("Новый пользователь? Создайте аккаунт.", for: .normal)
+        btn.setTitle("Новый пользователь", for: .normal)
         btn.layer.cornerRadius = 10
         btn.setTitleColor(UIColor(named: "orange"), for: .normal)
         btn.titleLabel?.font =  UIFont.systemFont(ofSize: 15, weight: .bold)
@@ -132,16 +132,16 @@ class SignInView: UIView {
     }
     
     private func setupTextFields(){
-        addSubview(usernameTextField)
+        addSubview(emailTextField)
         addSubview(password)
         NSLayoutConstraint.activate([
-            usernameTextField.topAnchor.constraint(equalTo: signInYourAccountLabel.bottomAnchor, constant: 30),
-            usernameTextField.centerXAnchor.constraint(equalTo: centerXAnchor),
-            usernameTextField.heightAnchor.constraint(equalToConstant: 50),
-            usernameTextField.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 30),
-            usernameTextField.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -30),
+            emailTextField.topAnchor.constraint(equalTo: signInYourAccountLabel.bottomAnchor, constant: 30),
+            emailTextField.centerXAnchor.constraint(equalTo: centerXAnchor),
+            emailTextField.heightAnchor.constraint(equalToConstant: 50),
+            emailTextField.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 30),
+            emailTextField.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -30),
             
-            password.topAnchor.constraint(equalTo: usernameTextField.bottomAnchor, constant: 20),
+            password.topAnchor.constraint(equalTo: emailTextField.bottomAnchor, constant: 20),
             password.centerXAnchor.constraint(equalTo: centerXAnchor),
             password.heightAnchor.constraint(equalToConstant: 50),
             password.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 30),
@@ -172,7 +172,7 @@ class SignInView: UIView {
     
     @objc
     private func signInBtnDidTouched(){
-        buttonTouched?(button.SignIn, usernameTextField.text!, password.text!)
+        buttonTouched?(button.SignIn, emailTextField.text!, password.text!)
     }
     
     @objc

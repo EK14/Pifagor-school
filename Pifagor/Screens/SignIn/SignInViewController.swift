@@ -10,6 +10,8 @@ import UIKit
 class SignInViewController: UIViewController {
     
     private let signInView = SignInView()
+    
+    private let signUpViewController = SignUpViewController()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -19,8 +21,9 @@ class SignInViewController: UIViewController {
             case button.SignIn:
                 self?.signIn(email: email, password: password)
             case button.SignUp:
-                self?.two()
-            }}
+                self?.signUp()
+            }
+        }
     }
     
     override func loadView() {
@@ -50,8 +53,8 @@ class SignInViewController: UIViewController {
         }
     }
     
-    private func two(){
-        print("sign up")
+    private func signUp(){
+        navigationController?.pushViewController(signUpViewController, animated: true)
     }
     
     func callAlert(error: Error){
