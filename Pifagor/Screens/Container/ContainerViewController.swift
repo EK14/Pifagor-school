@@ -7,7 +7,7 @@
 
 import UIKit
 
-class HomeViewController: UIViewController {
+class ContainerViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -18,6 +18,7 @@ class HomeViewController: UIViewController {
     private func setupUI(){
         view.backgroundColor = .white
         navigationItem.rightBarButtonItem = UIBarButtonItem(title: "logout", style: .plain, target: self, action: #selector(didTapLogout))
+        navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "list.dash"), style: .plain, target: self, action: #selector(didTapMenu))
     }
     
     @objc
@@ -32,5 +33,10 @@ class HomeViewController: UIViewController {
                 sceneDelegate.checkAuth()
             }
         }
+    }
+    
+    @objc
+    private func didTapMenu(){
+        print("Прыветы")
     }
 }

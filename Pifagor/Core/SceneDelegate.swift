@@ -31,7 +31,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         if Auth.auth().currentUser == nil{
             self.goToController(with: SignInViewController())
         }else{
-            self.goToController(with: HomeViewController())
+            self.goToController(with: ContainerViewController())
         }
     }
     

@@ -15,7 +15,7 @@
 		3D618FCA2B14C4E5005BFFFC /* SignUpUserRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D618FC92B14C4E5005BFFFC /* SignUpUserRequest.swift */; };
 		3D618FCD2B14C9D8005BFFFC /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = 3D618FCC2B14C9D8005BFFFC /* FirebaseFirestore */; };
 		3D618FCF2B14CFC8005BFFFC /* SignInUserRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D618FCE2B14CFC8005BFFFC /* SignInUserRequest.swift */; };
-		3D618FD22B14D3B4005BFFFC /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D618FD12B14D3B4005BFFFC /* HomeViewController.swift */; };
+		3D618FD22B14D3B4005BFFFC /* ContainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D618FD12B14D3B4005BFFFC /* ContainerViewController.swift */; };
 		3D618FD72B159187005BFFFC /* MyError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D618FD62B159187005BFFFC /* MyError.swift */; };
 		3D618FD92B15EC58005BFFFC /* AlertManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D618FD82B15EC58005BFFFC /* AlertManager.swift */; };
 		3DA881442AE91A31009D5E45 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DA881432AE91A31009D5E45 /* AppDelegate.swift */; };
@@ -33,7 +33,7 @@
 		3D618FC72B14BFAB005BFFFC /* SignUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpView.swift; sourceTree = "<group>"; };
 		3D618FC92B14C4E5005BFFFC /* SignUpUserRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpUserRequest.swift; sourceTree = "<group>"; };
 		3D618FCE2B14CFC8005BFFFC /* SignInUserRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInUserRequest.swift; sourceTree = "<group>"; };
-		3D618FD12B14D3B4005BFFFC /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		3D618FD12B14D3B4005BFFFC /* ContainerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContainerViewController.swift; sourceTree = "<group>"; };
 		3D618FD62B159187005BFFFC /* MyError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyError.swift; sourceTree = "<group>"; };
 		3D618FD82B15EC58005BFFFC /* AlertManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertManager.swift; sourceTree = "<group>"; };
 		3DA881402AE91A31009D5E45 /* Pifagor.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Pifagor.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -62,7 +62,7 @@
 		3D618FC22B14BDA6005BFFFC /* Screens */ = {
 			isa = PBXGroup;
 			children = (
-				3D618FD02B14D39C005BFFFC /* Home */,
+				3D618FD02B14D39C005BFFFC /* Container */,
 				3D618FC42B14BDFB005BFFFC /* SignUp */,
 				3D618FC32B14BDBB005BFFFC /* SignIn */,
 			);
@@ -94,12 +94,12 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		3D618FD02B14D39C005BFFFC /* Home */ = {
+		3D618FD02B14D39C005BFFFC /* Container */ = {
 			isa = PBXGroup;
 			children = (
-				3D618FD12B14D3B4005BFFFC /* HomeViewController.swift */,
+				3D618FD12B14D3B4005BFFFC /* ContainerViewController.swift */,
 			);
-			path = Home;
+			path = Container;
 			sourceTree = "<group>";
 		};
 		3DA881372AE91A31009D5E45 = {
@@ -246,7 +246,7 @@
 				3DA881482AE91A31009D5E45 /* SignInViewController.swift in Sources */,
 				3DA881442AE91A31009D5E45 /* AppDelegate.swift in Sources */,
 				3D618FC82B14BFAB005BFFFC /* SignUpView.swift in Sources */,
-				3D618FD22B14D3B4005BFFFC /* HomeViewController.swift in Sources */,
+				3D618FD22B14D3B4005BFFFC /* ContainerViewController.swift in Sources */,
 				3D618FC12B14ACFD005BFFFC /* AuthService.swift in Sources */,
 				3D618FD92B15EC58005BFFFC /* AlertManager.swift in Sources */,
 				3DF912A72AF66C6A00BFCFF0 /* SignInView.swift in Sources */,
