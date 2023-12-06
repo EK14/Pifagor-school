@@ -18,7 +18,13 @@ class MyProfileViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "list.dash"), style: .plain, target: self, action: #selector(didTapMenu))
+        let item = UIBarButtonItem()
+        item.image = UIImage(systemName: "list.dash")
+        item.style = .plain
+        item.target = self
+        item.action = #selector(didTapMenu)
+        item.tintColor = .black
+        navigationItem.leftBarButtonItem = item
     }
     
     override func loadView() {

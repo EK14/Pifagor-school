@@ -1,5 +1,5 @@
 //
-//  MenuView.swift
+//  MenuBackground.swift
 //  Pifagor
 //
 //  Created by Элина Карапетян on 06.12.2023.
@@ -7,11 +7,12 @@
 
 import UIKit
 
-class MenuView: UIView {
+class MenuBackground: UIView {
 
     override init(frame: CGRect) {
         super.init(frame: frame)
-        backgroundColor = .white
+        backgroundColor = UIColor(named: "menubackground")
+        alpha = 0.5
     }
     
     required init?(coder: NSCoder) {

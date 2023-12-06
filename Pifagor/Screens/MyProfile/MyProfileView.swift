@@ -19,6 +19,6 @@ class MyProfileView: UIView {
     }
     
     private func setupBackgroundColor(){
-        backgroundColor = .yellow
+        backgroundColor = .white
     }
 }

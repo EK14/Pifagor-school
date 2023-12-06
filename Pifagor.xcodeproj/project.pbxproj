@@ -22,6 +22,7 @@
 		3D618FD22B14D3B4005BFFFC /* ContainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D618FD12B14D3B4005BFFFC /* ContainerViewController.swift */; };
 		3D618FD72B159187005BFFFC /* MyError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D618FD62B159187005BFFFC /* MyError.swift */; };
 		3D618FD92B15EC58005BFFFC /* AlertManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D618FD82B15EC58005BFFFC /* AlertManager.swift */; };
+		3D7E80812B20AB01009DCB34 /* MenuBackground.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D7E80802B20AB01009DCB34 /* MenuBackground.swift */; };
 		3DA881442AE91A31009D5E45 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DA881432AE91A31009D5E45 /* AppDelegate.swift */; };
 		3DA881462AE91A31009D5E45 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DA881452AE91A31009D5E45 /* SceneDelegate.swift */; };
 		3DA881482AE91A31009D5E45 /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DA881472AE91A31009D5E45 /* SignInViewController.swift */; };
@@ -44,6 +45,7 @@
 		3D618FD12B14D3B4005BFFFC /* ContainerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContainerViewController.swift; sourceTree = "<group>"; };
 		3D618FD62B159187005BFFFC /* MyError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyError.swift; sourceTree = "<group>"; };
 		3D618FD82B15EC58005BFFFC /* AlertManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertManager.swift; sourceTree = "<group>"; };
+		3D7E80802B20AB01009DCB34 /* MenuBackground.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuBackground.swift; sourceTree = "<group>"; };
 		3DA881402AE91A31009D5E45 /* Pifagor.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Pifagor.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3DA881432AE91A31009D5E45 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3DA881452AE91A31009D5E45 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -121,6 +123,7 @@
 			children = (
 				3D3D13562B2080ED0035664D /* MenuViewController.swift */,
 				3D3D13582B2086B20035664D /* MenuView.swift */,
+				3D7E80802B20AB01009DCB34 /* MenuBackground.swift */,
 			);
 			path = Menu;
 			sourceTree = "<group>";
@@ -305,6 +308,7 @@
 				3D618FD72B159187005BFFFC /* MyError.swift in Sources */,
 				3D618FCA2B14C4E5005BFFFC /* SignUpUserRequest.swift in Sources */,
 				3D618FC62B14BF98005BFFFC /* SignUpViewController.swift in Sources */,
+				3D7E80812B20AB01009DCB34 /* MenuBackground.swift in Sources */,
 				3D3D13552B207F200035664D /* MyProfileView.swift in Sources */,
 				3DA881482AE91A31009D5E45 /* SignInViewController.swift in Sources */,
 				3DA881442AE91A31009D5E45 /* AppDelegate.swift in Sources */,
