@@ -29,22 +29,26 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     
     public func checkAuth(){
         if Auth.auth().currentUser == nil{
-            self.goToController(with: SignInViewController())
+            self.goToController(with: SignInViewController(), withNavCont: true)
         }else{
-            self.goToController(with: ContainerViewController())
+            self.goToController(with: ContainerViewController(), withNavCont: false)
         }
     }
     
-    private func goToController(with viewController: UIViewController){
+    private func goToController(with viewController: UIViewController, withNavCont: Bool){
         DispatchQueue.main.async { [weak self] in
             UIView.animate(withDuration: 0.25) {
                 
                 self?.window?.layer.opacity = 0
                 
             } completion: { [weak self] _ in
-                
-//                let nav = UINavigationController(rootViewController: viewController)
-                self?.window?.rootViewController = viewController
+                if withNavCont{
+                    let nav = UINavigationController(rootViewController: viewController)
+                    self?.window?.rootViewController = nav
+                }
+                else{
+                    self?.window?.rootViewController = viewController
+                }
                 
                 UIView.animate(withDuration: 0.25) { [weak self] in
                     self?.window?.layer.opacity = 1
