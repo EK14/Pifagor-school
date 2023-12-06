@@ -60,16 +60,16 @@ extension ContainerViewController: MyProfileViewControllerDelegate{
                 }
             }
         case .opened:
-            UIView.animate(withDuration: 0.5, delay: 0, usingSpringWithDamping: 0.8, initialSpringVelocity: 0, options: .curveEaseOut) {
-                UIView.transition(with: self.back, duration: 0.5, options: .transitionCrossDissolve, animations: {
-                    self.back.isHidden = true
-                })
-                self.navVC?.view.frame.origin.x = 0
-            }completion: { [weak self] done in
-                if done{
-                    self?.menuState = .closed
+            UIView.transition(with: self.back, duration: 0.5, options: .transitionCrossDissolve, animations: {
+                self.back.isHidden = true
+                UIView.animate(withDuration: 0.5, delay: 0, usingSpringWithDamping: 0.8, initialSpringVelocity: 0, options: .curveEaseOut) {
+                    self.navVC?.view.frame.origin.x = 0
+                }completion: { [weak self] done in
+                    if done{
+                        self?.menuState = .closed
+                    }
                 }
-            }
+            })
         }
     }
 }

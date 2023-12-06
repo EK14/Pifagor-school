@@ -13,10 +13,24 @@ class MenuViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        menuView.logoutBtnDidTouched = {[weak self] in self?.logoutBtnDidTap()}
     }
     
     override func loadView() {
         view = menuView
+    }
+    
+    private func logoutBtnDidTap(){
+        AuthService.shared.signOut { [weak self] err in
+            guard let self = self else {return}
+            if let err = err {
+                AlertManager.shared.callAlert(error: err)
+                return
+            }
+            if let sceneDelegate = self.view.window?.windowScene?.delegate as? SceneDelegate{
+                sceneDelegate.checkAuth()
+            }
+        }
     }
 }
 
