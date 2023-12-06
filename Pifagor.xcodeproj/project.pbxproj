@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3D3D13532B207F080035664D /* MyProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D3D13522B207F080035664D /* MyProfileViewController.swift */; };
+		3D3D13552B207F200035664D /* MyProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D3D13542B207F200035664D /* MyProfileView.swift */; };
+		3D3D13572B2080ED0035664D /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D3D13562B2080ED0035664D /* MenuViewController.swift */; };
+		3D3D13592B2086B20035664D /* MenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D3D13582B2086B20035664D /* MenuView.swift */; };
 		3D618FBC2B14AAFC005BFFFC /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3D618FBB2B14AAFC005BFFFC /* GoogleService-Info.plist */; };
 		3D618FBF2B14ABD8005BFFFC /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 3D618FBE2B14ABD8005BFFFC /* FirebaseAuth */; };
 		3D618FC12B14ACFD005BFFFC /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D618FC02B14ACFD005BFFFC /* AuthService.swift */; };
@@ -27,6 +31,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		3D3D13522B207F080035664D /* MyProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyProfileViewController.swift; sourceTree = "<group>"; };
+		3D3D13542B207F200035664D /* MyProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyProfileView.swift; sourceTree = "<group>"; };
+		3D3D13562B2080ED0035664D /* MenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
+		3D3D13582B2086B20035664D /* MenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuView.swift; sourceTree = "<group>"; };
 		3D618FBB2B14AAFC005BFFFC /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		3D618FC02B14ACFD005BFFFC /* AuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
 		3D618FC52B14BF98005BFFFC /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
@@ -62,6 +70,12 @@
 		3D618FC22B14BDA6005BFFFC /* Screens */ = {
 			isa = PBXGroup;
 			children = (
+				3D618FDF2B1E4E3B005BFFFC /* MyProfile */,
+				3D618FDE2B1E4E14005BFFFC /* About us */,
+				3D618FDD2B1E4E0B005BFFFC /* Homework */,
+				3D618FDC2B1E4DF8005BFFFC /* MySubjects */,
+				3D618FDB2B1E4DC9005BFFFC /* Schedule */,
+				3D618FDA2B1E4C32005BFFFC /* Menu */,
 				3D618FD02B14D39C005BFFFC /* Container */,
 				3D618FC42B14BDFB005BFFFC /* SignUp */,
 				3D618FC32B14BDBB005BFFFC /* SignIn */,
@@ -100,6 +114,52 @@
 				3D618FD12B14D3B4005BFFFC /* ContainerViewController.swift */,
 			);
 			path = Container;
+			sourceTree = "<group>";
+		};
+		3D618FDA2B1E4C32005BFFFC /* Menu */ = {
+			isa = PBXGroup;
+			children = (
+				3D3D13562B2080ED0035664D /* MenuViewController.swift */,
+				3D3D13582B2086B20035664D /* MenuView.swift */,
+			);
+			path = Menu;
+			sourceTree = "<group>";
+		};
+		3D618FDB2B1E4DC9005BFFFC /* Schedule */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Schedule;
+			sourceTree = "<group>";
+		};
+		3D618FDC2B1E4DF8005BFFFC /* MySubjects */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = MySubjects;
+			sourceTree = "<group>";
+		};
+		3D618FDD2B1E4E0B005BFFFC /* Homework */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Homework;
+			sourceTree = "<group>";
+		};
+		3D618FDE2B1E4E14005BFFFC /* About us */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "About us";
+			sourceTree = "<group>";
+		};
+		3D618FDF2B1E4E3B005BFFFC /* MyProfile */ = {
+			isa = PBXGroup;
+			children = (
+				3D3D13522B207F080035664D /* MyProfileViewController.swift */,
+				3D3D13542B207F200035664D /* MyProfileView.swift */,
+			);
+			path = MyProfile;
 			sourceTree = "<group>";
 		};
 		3DA881372AE91A31009D5E45 = {
@@ -240,12 +300,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3D3D13532B207F080035664D /* MyProfileViewController.swift in Sources */,
+				3D3D13572B2080ED0035664D /* MenuViewController.swift in Sources */,
 				3D618FD72B159187005BFFFC /* MyError.swift in Sources */,
 				3D618FCA2B14C4E5005BFFFC /* SignUpUserRequest.swift in Sources */,
 				3D618FC62B14BF98005BFFFC /* SignUpViewController.swift in Sources */,
+				3D3D13552B207F200035664D /* MyProfileView.swift in Sources */,
 				3DA881482AE91A31009D5E45 /* SignInViewController.swift in Sources */,
 				3DA881442AE91A31009D5E45 /* AppDelegate.swift in Sources */,
 				3D618FC82B14BFAB005BFFFC /* SignUpView.swift in Sources */,
+				3D3D13592B2086B20035664D /* MenuView.swift in Sources */,
 				3D618FD22B14D3B4005BFFFC /* ContainerViewController.swift in Sources */,
 				3D618FC12B14ACFD005BFFFC /* AuthService.swift in Sources */,
 				3D618FD92B15EC58005BFFFC /* AlertManager.swift in Sources */,

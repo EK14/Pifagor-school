@@ -8,35 +8,59 @@
 import UIKit
 
 class ContainerViewController: UIViewController {
+    
+    enum MenuState{
+        case opened
+        case closed
+    }
+    
+    private var menuState: MenuState = .closed
+    private let myProfileVC = MyProfileViewController()
+    private let menuVC = MenuViewController()
+    var navVC: UINavigationController?
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        AlertManager.shared.presentAlert = {[weak self] error in self?.present(error, animated: true)}
-        setupUI()
+        view.backgroundColor = .blue
+        addChildVCs()
     }
     
-    private func setupUI(){
-        view.backgroundColor = .white
-        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "logout", style: .plain, target: self, action: #selector(didTapLogout))
-        navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "list.dash"), style: .plain, target: self, action: #selector(didTapMenu))
+    private func addChildVCs(){
+        //Menu
+        addChild(menuVC)
+        view.addSubview(menuVC.view)
+        menuVC.didMove(toParent: self)
+        
+        //MyProfile
+        myProfileVC.delegate = self
+        let nav = UINavigationController(rootViewController: myProfileVC)
+        addChild(nav)
+        view.addSubview(nav.view)
+        nav.didMove(toParent: self)
+        self.navVC = nav
     }
     
-    @objc
-    private func didTapLogout(){
-        AuthService.shared.signOut { [weak self] err in
-            guard let self = self else {return}
-            if let err = err {
-                AlertManager.shared.callAlert(error: err)
-                return
+}
+
+extension ContainerViewController: MyProfileViewControllerDelegate{
+    func didTapMenu() {
+        switch menuState{
+        case .closed:
+            UIView.animate(withDuration: 0.5, delay: 0, usingSpringWithDamping: 0.8, initialSpringVelocity: 0, options: .curveEaseOut) {
+                self.navVC?.view.frame.origin.x = self.myProfileVC.view.frame.size.width - 100
+            }completion: { [weak self] done in
+                if done{
+                    self?.menuState = .opened
+                }
             }
-            if let sceneDelegate = self.view.window?.windowScene?.delegate as? SceneDelegate{
-                sceneDelegate.checkAuth()
+        case .opened:
+            UIView.animate(withDuration: 0.5, delay: 0, usingSpringWithDamping: 0.8, initialSpringVelocity: 0, options: .curveEaseOut) {
+                self.navVC?.view.frame.origin.x = 0
+            }completion: { [weak self] done in
+                if done{
+                    self?.menuState = .closed
+                }
             }
         }
-    }
-    
-    @objc
-    private func didTapMenu(){
-        print("Прыветы")
     }
 }
