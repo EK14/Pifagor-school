@@ -16,22 +16,15 @@ class MyProfileViewController: UIViewController {
     
     let myProfileView = MyProfileView()
     weak var delegate: MyProfileViewControllerDelegate?
+    let balance = [Balance(balance: 1, subject: "Математика"), Balance(balance: 5, subject: "Художественная мастерская"), Balance(balance: 2, subject: "Английский язык")]
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        myProfileView.myProfileHeadView.editBtnDidTouched = {[weak self]  in
-            self?.editBtnDidTouched()
-        }
+        myProfileView.amount = balance.count
+        getClosuresRequests()
         updateAvatar()
-        title = "Личный кабинет"
-        let item = UIBarButtonItem()
-        item.image = UIImage(systemName: "list.dash")
-        item.style = .plain
-        item.target = self
-        item.action = #selector(didTapMenu)
-        item.tintColor = .black
-        navigationItem.leftBarButtonItem = item
+        setupNavController()
+        setupCollectionViewDelegates()
     }
     
     override func loadView() {
@@ -43,6 +36,23 @@ class MyProfileViewController: UIViewController {
         delegate?.didTapMenu()
     }
     
+    private func getClosuresRequests(){
+        myProfileView.myProfileHeadView.editBtnDidTouched = {[weak self]  in
+            self?.editBtnDidTouched()
+        }
+    }
+    
+    private func setupNavController(){
+        title = "Личный кабинет"
+        let item = UIBarButtonItem()
+        item.image = UIImage(systemName: "list.dash")
+        item.style = .plain
+        item.target = self
+        item.action = #selector(didTapMenu)
+        item.tintColor = .black
+        navigationItem.leftBarButtonItem = item
+    }
+    
     private func editBtnDidTouched(){
         let picker = UIImagePickerController()
         picker.sourceType = .photoLibrary
@@ -50,10 +60,16 @@ class MyProfileViewController: UIViewController {
         picker.delegate = self
         present(picker, animated: true)
     }
+    
+    private func setupCollectionViewDelegates(){
+//        myProfileView.collectionView.dataSource = self
+//        myProfileView.collectionView.delegate = self
+    }
 
 }
 
 extension MyProfileViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate{
+    
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         if let image = info[.editedImage] as? UIImage{
             self.myProfileView.myProfileHeadView.profileImage.image = image
@@ -75,4 +91,5 @@ extension MyProfileViewController: UIImagePickerControllerDelegate, UINavigation
             self.myProfileView.myProfileHeadView.profileImage.sd_setImage(with: URL(string: photoURL))
         }
     }
+    
 }

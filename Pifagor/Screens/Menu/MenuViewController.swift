@@ -13,11 +13,15 @@ class MenuViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        menuView.logoutBtnDidTouched = {[weak self] in self?.logoutBtnDidTap()}
+        getClosuresRequests()
     }
     
     override func loadView() {
         view = menuView
+    }
+    
+    private func getClosuresRequests(){
+        menuView.logoutBtnDidTouched = {[weak self] in self?.logoutBtnDidTap()}
     }
     
     private func logoutBtnDidTap(){
@@ -33,19 +37,3 @@ class MenuViewController: UIViewController {
         }
     }
 }
-
-//navigationItem.rightBarButtonItem = UIBarButtonItem(title: "logout", style: .plain, target: self, action: #selector(didTapLogout))
-//
-//@objc
-//private func didTapLogout(){
-//    AuthService.shared.signOut { [weak self] err in
-//        guard let self = self else {return}
-//        if let err = err {
-//            AlertManager.shared.callAlert(error: err)
-//            return
-//        }
-//        if let sceneDelegate = self.view.window?.windowScene?.delegate as? SceneDelegate{
-//            sceneDelegate.checkAuth()
-//        }
-//    }
-//}

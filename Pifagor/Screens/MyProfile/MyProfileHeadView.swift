@@ -33,12 +33,7 @@ class MyProfileHeadView: UIView {
     
     @objc
     private func editBtnDidTap(){
-//        let picker = UIImagePickerController()
-//        picker.sourceType = .photoLibrary
-//        picker.allowsEditing = true
         editBtnDidTouched?()
-//        picker.delegate = self
-//        present(picker, animated: true)
     }
 
     override init(frame: CGRect) {
