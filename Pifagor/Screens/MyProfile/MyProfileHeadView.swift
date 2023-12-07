@@ -9,10 +9,11 @@ import UIKit
 
 class MyProfileHeadView: UIView {
     
-    private lazy var profileImage: UIImageView = {
+    var editBtnDidTouched: (() -> ())?
+    
+    lazy var profileImage: UIImageView = {
         let img = UIImageView()
         img.translatesAutoresizingMaskIntoConstraints = false
-        img.image = UIImage(named: "default_profile_image")
         img.layer.cornerRadius = UIScreen.main.bounds.size.width*0.33/2
         img.clipsToBounds = true
         return img
@@ -32,7 +33,12 @@ class MyProfileHeadView: UIView {
     
     @objc
     private func editBtnDidTap(){
-        print("editBtnDidTap")
+//        let picker = UIImagePickerController()
+//        picker.sourceType = .photoLibrary
+//        picker.allowsEditing = true
+        editBtnDidTouched?()
+//        picker.delegate = self
+//        present(picker, animated: true)
     }
 
     override init(frame: CGRect) {
