@@ -20,11 +20,10 @@ class MyProfileViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        myProfileView.amount = balance.count
         getClosuresRequests()
         updateAvatar()
         setupNavController()
-        setupCollectionViewDelegates()
+        setBalanceInfo()
     }
     
     override func loadView() {
@@ -61,9 +60,8 @@ class MyProfileViewController: UIViewController {
         present(picker, animated: true)
     }
     
-    private func setupCollectionViewDelegates(){
-//        myProfileView.collectionView.dataSource = self
-//        myProfileView.collectionView.delegate = self
+    private func setBalanceInfo(){
+        myProfileView.balance = balance
     }
 
 }

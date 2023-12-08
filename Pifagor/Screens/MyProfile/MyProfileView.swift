@@ -12,7 +12,7 @@ class MyProfileView: UIView {
     let myProfileHeadView = MyProfileHeadView(frame: CGRect(x: 0, y: 0, width: UIScreen.main.bounds.size.width, height: UIScreen.main.bounds.size.height*0.4))
     
     private let cellColors = ["orange", "blue", "purple", "green"]
-    var amount = Int()
+    var balance: [Balance] = []
     
     private lazy var headerTitle: UILabel = {
         let title = UILabel()
@@ -68,28 +68,17 @@ class MyProfileView: UIView {
         collectionView.dataSource = self
         collectionView.delegate = self
     }
-    
-    private func selectEnding(balance: Int) -> String{
-        if balance == 11 || balance == 12 || balance == 13 || balance == 14 || balance == 15{
-            return "ий"
-        } else if balance % 10 == 1{
-            return "ие"
-        } else{
-            return "ий"
-        }
-
-    }
 }
 
 extension MyProfileView: UICollectionViewDelegateFlowLayout, UICollectionViewDataSource{
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        amount
+        balance.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! SubjectBalanceCollectionViewCell
         let color = UIColor(named: cellColors[indexPath.row % cellColors.count]) ?? .white
-        cell.setCell(color: color)
+        cell.setCell(color: color, balance: balance[indexPath.row])
         return cell
     }
     
