@@ -137,15 +137,15 @@ class AuthService{
         }
     }
     
-    func getUserData(completion: @escaping (String) -> ()){
+    func getUserData(completion: @escaping (String) -> (), field: String){
         guard let uid = Auth.auth().currentUser?.uid else {return}
         Firestore.firestore().collection("users").document(uid).getDocument { snap, err in
             guard err == nil else {return}
             
             guard let document = snap?.data() else {return}
             
-            let photoURL = document["photoURL"] as! String
-            completion(photoURL)
+            let data = document[field] as! String
+            completion(data)
         }
     }
 }

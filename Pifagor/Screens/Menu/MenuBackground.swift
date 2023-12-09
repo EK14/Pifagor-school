@@ -12,7 +12,7 @@ class MenuBackground: UIView {
     override init(frame: CGRect) {
         super.init(frame: frame)
         backgroundColor = UIColor(named: "menubackground")
-        alpha = 0.5
+        alpha = 0.7
     }
     
     required init?(coder: NSCoder) {

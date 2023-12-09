@@ -9,7 +9,7 @@ import UIKit
 
 class MyProfileView: UIView {
     
-    let myProfileHeadView = MyProfileHeadView(frame: CGRect(x: 0, y: 0, width: UIScreen.main.bounds.size.width, height: UIScreen.main.bounds.size.height*0.4))
+    let myProfileHeadView = MyProfileHeadView(frame: CGRect(x: 0, y: 0, width: UIScreen.main.bounds.size.width, height: UIScreen.main.bounds.size.height*0.41))
     
     private let cellColors = ["orange", "blue", "purple", "green"]
     var balance: [Balance] = []

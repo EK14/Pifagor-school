@@ -10,13 +10,14 @@ import SDWebImage
 
 protocol MyProfileViewControllerDelegate: AnyObject{
     func didTapMenu()
+    func didChangedPhoto()
 }
 
 class MyProfileViewController: UIViewController {
     
     let myProfileView = MyProfileView()
     weak var delegate: MyProfileViewControllerDelegate?
-    let balance = [Balance(balance: 1, subject: "Математика"), Balance(balance: 5, subject: "Художественная мастерская"), Balance(balance: 2, subject: "Английский язык")]
+    private let balance = [Balance(balance: 1, subject: "Математика"), Balance(balance: 5, subject: "Художественная мастерская"), Balance(balance: 2, subject: "Английский язык"), Balance(balance: 8, subject: "Логопед и развитие речи")]
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -39,6 +40,21 @@ class MyProfileViewController: UIViewController {
         myProfileView.myProfileHeadView.editBtnDidTouched = {[weak self]  in
             self?.editBtnDidTouched()
         }
+        
+        AuthService.shared.getUserData(completion: { [weak self] name in
+            guard name == name else {return}
+            self?.myProfileView.myProfileHeadView.name.text = name
+        }, field: "username")
+
+        AuthService.shared.getUserData(completion: { email in
+            guard email == email else {return}
+            let text = NSMutableAttributedString.init(string: "Электронная почта: \(email)")
+            text.setAttributes([NSAttributedString.Key.font: UIFont.systemFont(ofSize: 15, weight: .medium)],
+                               range: NSMakeRange(0, "Электронная почта:".count))
+            text.setAttributes([NSAttributedString.Key.font: UIFont.systemFont(ofSize: 15, weight: .thin)], range: NSMakeRange("Электронная почта:".count+1, email.count))
+            self.myProfileView.myProfileHeadView.emailLabel.attributedText = text
+        }, field: "email")
+        
     }
     
     private func setupNavController(){
@@ -76,6 +92,7 @@ extension MyProfileViewController: UIImagePickerControllerDelegate, UINavigation
                 AuthService.shared.setAvatar(image: imageData) { res in
                     if res{
                         self.updateAvatar()
+                        self.delegate?.didChangedPhoto()
                     }
                 }
             }
@@ -85,9 +102,9 @@ extension MyProfileViewController: UIImagePickerControllerDelegate, UINavigation
     }
     
     func updateAvatar(){
-        AuthService.shared.getUserData { photoURL in
+        AuthService.shared.getUserData(completion: { photoURL in
             self.myProfileView.myProfileHeadView.profileImage.sd_setImage(with: URL(string: photoURL))
-        }
+        }, field: "photoURL")
     }
     
 }

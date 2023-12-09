@@ -46,6 +46,10 @@ class ContainerViewController: UIViewController {
 }
 
 extension ContainerViewController: MyProfileViewControllerDelegate{
+    func didChangedPhoto() {
+        menuVC.didChangedPhoto()
+    }
+    
     func didTapMenu() {
         switch menuState{
         case .closed:

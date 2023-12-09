@@ -60,7 +60,6 @@ class SubjectBalanceCollectionViewCell: UICollectionViewCell {
             amount.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20),
             amount.centerYAnchor.constraint(equalTo: centerYAnchor),
             
-//            subjectName.centerYAnchor.constraint(equalTo: centerYAnchor),
             subjectName.topAnchor.constraint(equalTo: topAnchor, constant: 20),
             subjectName.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20),
         ])
