@@ -33,31 +33,46 @@ class MyProfileTableViewCell: UITableViewCell {
         return studentLabel
     }()
     
-    lazy var myProfileBtn: UIButton = {
-        let btn = UIButton()
-        btn.setTitle("Личный кабинет >", for: .normal)
-        btn.setTitleColor(UIColor(named: "orange"), for: .normal)
-        btn.translatesAutoresizingMaskIntoConstraints = false
-        return btn
+    lazy var myProfile: UILabel = {
+        let label = UILabel()
+        label.text = "Личный кабинет >"
+        label.textColor = UIColor(named: "orange")
+        label.font = UIFont.systemFont(ofSize: 15, weight: .medium)
+        label.translatesAutoresizingMaskIntoConstraints = false
+        return label
     }()
     
     func setCell(){
         AuthService.shared.getUserData(completion: { photoURL in
             self.profileImage.sd_setImage(with: URL(string: photoURL))
         }, field: "photoURL")
+        
+        AuthService.shared.getUserData(completion: { name in
+            self.name.text = name
+        }, field: "username")
+        
         setupConstraints()
     }
     
     private func setupConstraints(){
         addSubview(profileImage)
-//        addSubview(name)
-//        addSubview(studentLabel)
-//        addSubview(myProfileBtn)
+        addSubview(name)
+        addSubview(studentLabel)
+        addSubview(myProfile)
         NSLayoutConstraint.activate([
             profileImage.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: UIViewController().topbarHeight),
             profileImage.centerXAnchor.constraint(equalTo: centerXAnchor, constant: -50),
             profileImage.widthAnchor.constraint(equalToConstant: UIScreen.main.bounds.size.width*0.33),
             profileImage.heightAnchor.constraint(equalToConstant: UIScreen.main.bounds.size.width*0.33),
+            
+            name.topAnchor.constraint(equalTo: profileImage.bottomAnchor, constant: 10),
+            name.centerXAnchor.constraint(equalTo: centerXAnchor, constant: -50),
+            
+            studentLabel.topAnchor.constraint(equalTo: name.bottomAnchor),
+            studentLabel.centerXAnchor.constraint(equalTo: centerXAnchor, constant: -50),
+            
+            myProfile.topAnchor.constraint(equalTo: studentLabel.bottomAnchor, constant: 15),
+            myProfile.centerXAnchor.constraint(equalTo: centerXAnchor, constant: -50),
         ])
     }
 }

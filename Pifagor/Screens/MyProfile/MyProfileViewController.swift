@@ -58,7 +58,7 @@ class MyProfileViewController: UIViewController {
     }
     
     private func setupNavController(){
-        title = "Личный кабинет"
+//        title = "Личный кабинет"
         let item = UIBarButtonItem()
         item.image = UIImage(systemName: "list.dash")
         item.style = .plain

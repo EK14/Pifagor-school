@@ -10,6 +10,7 @@ import UIKit
 class MenuView: UIView {
     
     var logoutBtnDidTouched: (() -> ())?
+    var didSelect: ((MenuOptions) -> ())?
     
     var photoURL = String()
     
@@ -20,7 +21,7 @@ class MenuView: UIView {
         case homework = "Домашнее задание"
         case aboutUs = "О нас"
         
-        var iamgeName: String {
+        var imageName: String {
             switch self{
             case .myProfile:
                 return ""
@@ -76,7 +77,7 @@ class MenuView: UIView {
             logoutBtn.centerXAnchor.constraint(equalTo: centerXAnchor, constant: -50),
             
             menuTableView.topAnchor.constraint(equalTo: topAnchor),
-            menuTableView.leadingAnchor.constraint(equalTo: leadingAnchor),
+            menuTableView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20),
             menuTableView.trailingAnchor.constraint(equalTo: trailingAnchor),
             menuTableView.bottomAnchor.constraint(equalTo: logoutBtn.topAnchor)
         ])
@@ -101,10 +102,15 @@ extension MenuView: UITableViewDelegate, UITableViewDataSource{
         case 0:
             let cell = menuTableView.dequeueReusableCell(withIdentifier: "myProfileCell", for: indexPath) as! MyProfileTableViewCell
             cell.setCell()
+            cell.selectionStyle = .none
             return cell
         default:
             let cell = menuTableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
             cell.textLabel?.text = MenuOptions.allCases[indexPath.row].rawValue
+            cell.selectionStyle = .none
+            cell.imageView?.image = UIImage(systemName: MenuOptions.allCases[indexPath.row].imageName)
+//            cell.imageView?.frame = CGRectMake(0,0,10,10)
+            cell.tintColor = .black
             return cell
         }
     }
@@ -112,10 +118,14 @@ extension MenuView: UITableViewDelegate, UITableViewDataSource{
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         switch indexPath.row{
         case 0:
-            return 300.0
+            return UIScreen.main.bounds.size.height*0.31
         default:
-            return 50
+            return UIScreen.main.bounds.size.height*0.08
         }
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        didSelect?(MenuOptions.allCases[indexPath.row])
     }
     
     

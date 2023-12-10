@@ -17,6 +17,11 @@
 		3D5A73CC2B222BE5008E285B /* SubjectBalanceCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D5A73CB2B222BE5008E285B /* SubjectBalanceCollectionViewCell.swift */; };
 		3D5A73CE2B223DBE008E285B /* Balance.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D5A73CD2B223DBE008E285B /* Balance.swift */; };
 		3D5A73D22B243EA1008E285B /* MyProfileTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D5A73D12B243EA1008E285B /* MyProfileTableViewCell.swift */; };
+		3D5A73D42B2508BC008E285B /* UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D5A73D32B2508BC008E285B /* UIViewController.swift */; };
+		3D5A73D92B2510E4008E285B /* HomeworkViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D5A73D82B2510E4008E285B /* HomeworkViewController.swift */; };
+		3D5A73DB2B252467008E285B /* MySubjectsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D5A73DA2B252467008E285B /* MySubjectsViewController.swift */; };
+		3D5A73DD2B252478008E285B /* ScheduleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D5A73DC2B252478008E285B /* ScheduleViewController.swift */; };
+		3D5A73DF2B2526C1008E285B /* AboutUsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D5A73DE2B2526C1008E285B /* AboutUsViewController.swift */; };
 		3D618FBC2B14AAFC005BFFFC /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3D618FBB2B14AAFC005BFFFC /* GoogleService-Info.plist */; };
 		3D618FBF2B14ABD8005BFFFC /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 3D618FBE2B14ABD8005BFFFC /* FirebaseAuth */; };
 		3D618FC12B14ACFD005BFFFC /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D618FC02B14ACFD005BFFFC /* AuthService.swift */; };
@@ -47,6 +52,11 @@
 		3D5A73CB2B222BE5008E285B /* SubjectBalanceCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubjectBalanceCollectionViewCell.swift; sourceTree = "<group>"; };
 		3D5A73CD2B223DBE008E285B /* Balance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Balance.swift; sourceTree = "<group>"; };
 		3D5A73D12B243EA1008E285B /* MyProfileTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyProfileTableViewCell.swift; sourceTree = "<group>"; };
+		3D5A73D32B2508BC008E285B /* UIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewController.swift; sourceTree = "<group>"; };
+		3D5A73D82B2510E4008E285B /* HomeworkViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeworkViewController.swift; sourceTree = "<group>"; };
+		3D5A73DA2B252467008E285B /* MySubjectsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MySubjectsViewController.swift; sourceTree = "<group>"; };
+		3D5A73DC2B252478008E285B /* ScheduleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleViewController.swift; sourceTree = "<group>"; };
+		3D5A73DE2B2526C1008E285B /* AboutUsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutUsViewController.swift; sourceTree = "<group>"; };
 		3D618FBB2B14AAFC005BFFFC /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		3D618FC02B14ACFD005BFFFC /* AuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
 		3D618FC52B14BF98005BFFFC /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
@@ -96,6 +106,14 @@
 				3D5A73D12B243EA1008E285B /* MyProfileTableViewCell.swift */,
 			);
 			path = TableViewCell;
+			sourceTree = "<group>";
+		};
+		3D5A73D52B2508DA008E285B /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				3D5A73D32B2508BC008E285B /* UIViewController.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 		3D618FC22B14BDA6005BFFFC /* Screens */ = {
@@ -162,6 +180,7 @@
 		3D618FDB2B1E4DC9005BFFFC /* Schedule */ = {
 			isa = PBXGroup;
 			children = (
+				3D5A73DC2B252478008E285B /* ScheduleViewController.swift */,
 			);
 			path = Schedule;
 			sourceTree = "<group>";
@@ -169,6 +188,7 @@
 		3D618FDC2B1E4DF8005BFFFC /* MySubjects */ = {
 			isa = PBXGroup;
 			children = (
+				3D5A73DA2B252467008E285B /* MySubjectsViewController.swift */,
 			);
 			path = MySubjects;
 			sourceTree = "<group>";
@@ -176,6 +196,7 @@
 		3D618FDD2B1E4E0B005BFFFC /* Homework */ = {
 			isa = PBXGroup;
 			children = (
+				3D5A73D82B2510E4008E285B /* HomeworkViewController.swift */,
 			);
 			path = Homework;
 			sourceTree = "<group>";
@@ -183,6 +204,7 @@
 		3D618FDE2B1E4E14005BFFFC /* About us */ = {
 			isa = PBXGroup;
 			children = (
+				3D5A73DE2B2526C1008E285B /* AboutUsViewController.swift */,
 			);
 			path = "About us";
 			sourceTree = "<group>";
@@ -218,6 +240,7 @@
 		3DA881422AE91A31009D5E45 /* Pifagor */ = {
 			isa = PBXGroup;
 			children = (
+				3D5A73D52B2508DA008E285B /* Extensions */,
 				3D618FD62B159187005BFFFC /* MyError.swift */,
 				3D618FD82B15EC58005BFFFC /* AlertManager.swift */,
 				3D618FC02B14ACFD005BFFFC /* AuthService.swift */,
@@ -340,8 +363,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3D5A73DB2B252467008E285B /* MySubjectsViewController.swift in Sources */,
 				3D3D13532B207F080035664D /* MyProfileViewController.swift in Sources */,
 				3D3D13572B2080ED0035664D /* MenuViewController.swift in Sources */,
+				3D5A73D92B2510E4008E285B /* HomeworkViewController.swift in Sources */,
 				3D5A73BA2B20B3E6008E285B /* MyProfileHeadView.swift in Sources */,
 				3D618FD72B159187005BFFFC /* MyError.swift in Sources */,
 				3D5A73D22B243EA1008E285B /* MyProfileTableViewCell.swift in Sources */,
@@ -351,9 +376,12 @@
 				3D7E80812B20AB01009DCB34 /* MenuBackground.swift in Sources */,
 				3D5A73CC2B222BE5008E285B /* SubjectBalanceCollectionViewCell.swift in Sources */,
 				3DA881482AE91A31009D5E45 /* SignInViewController.swift in Sources */,
+				3D5A73DD2B252478008E285B /* ScheduleViewController.swift in Sources */,
+				3D5A73DF2B2526C1008E285B /* AboutUsViewController.swift in Sources */,
 				3DA881442AE91A31009D5E45 /* AppDelegate.swift in Sources */,
 				3D618FC82B14BFAB005BFFFC /* SignUpView.swift in Sources */,
 				3D5A73BE2B20B78D008E285B /* MyProfileView.swift in Sources */,
+				3D5A73D42B2508BC008E285B /* UIViewController.swift in Sources */,
 				3D3D13592B2086B20035664D /* MenuView.swift in Sources */,
 				3D618FD22B14D3B4005BFFFC /* ContainerViewController.swift in Sources */,
 				3D618FC12B14ACFD005BFFFC /* AuthService.swift in Sources */,

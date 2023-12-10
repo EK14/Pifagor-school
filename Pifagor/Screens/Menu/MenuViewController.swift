@@ -7,9 +7,14 @@
 
 import UIKit
 
+protocol MenuViewControllerDelegate: AnyObject{
+    func didSelect(screen: MenuView.MenuOptions)
+}
+
 class MenuViewController: UIViewController {
     
     private let menuView = MenuView(frame: CGRect(x: 0, y: 0, width: UIScreen.main.bounds.size.width, height: UIScreen.main.bounds.size.height))
+    weak var delegate: MenuViewControllerDelegate?
 
 
     override func viewDidLoad() {
@@ -23,6 +28,7 @@ class MenuViewController: UIViewController {
     
     private func getClosuresRequests(){
         menuView.logoutBtnDidTouched = {[weak self] in self?.logoutBtnDidTap()}
+        menuView.didSelect = {[weak self] screen in self?.didSelect(screen: screen)}
     }
     
     private func logoutBtnDidTap(){
@@ -41,16 +47,8 @@ class MenuViewController: UIViewController {
     func didChangedPhoto(){
         menuView.menuTableView.reloadData()
     }
-}
-
-extension UIViewController {
-
-    /**
-     *  Height of status bar + navigation bar (if navigation bar exist)
-     */
-
-    var topbarHeight: CGFloat {
-        return UIApplication.shared.statusBarFrame.size.height +
-            (self.navigationController?.navigationBar.frame.height ?? 0.0)
+    
+    func didSelect(screen: MenuView.MenuOptions){
+        delegate?.didSelect(screen: screen)
     }
 }
