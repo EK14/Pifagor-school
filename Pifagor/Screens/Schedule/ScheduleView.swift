@@ -9,7 +9,7 @@ import UIKit
 
 class ScheduleView: UIView {
     
-    private let dayOfWeek = ["Понедельник", "Вторник", "Среда", "Четверг", "Пятница", "Суббота", "Воскрсенье"]
+    private let dayOfWeek = ["Понедельник", "Вторник", "Среда", "Четверг", "Пятница", "Суббота", "Воскресенье"]
     private let shortDayOfWeek = ["Пн", "Вт", "Ср", "Чт", "Пт", "Сб", "Вс"]
     private var select = 0
     
@@ -104,6 +104,8 @@ extension ScheduleView: UICollectionViewDelegateFlowLayout, UICollectionViewData
         cell?.backgroundColor = UIColor(named: "orange")
         dayOfWeekLabel.text = dayOfWeek[indexPath.row]
         select = indexPath.row
+        scheduleNestedView.currentDay = indexPath.row
+        scheduleNestedView.collectionView.reloadData()
     }
 
     func collectionView(_ collectionView: UICollectionView, didDeselectItemAt indexPath: IndexPath) {

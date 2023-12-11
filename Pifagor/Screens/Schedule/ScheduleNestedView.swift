@@ -9,19 +9,28 @@ import UIKit
 
 class ScheduleNestedView: UIView {
     
-    private let schedule = ["Понедельник": [Schedule(subject: "Художественная мастерская", teacher: "Калмыкова Диана", startTime: 9),
+    private lazy var noSchedule: UILabel = {
+        let label = UILabel()
+        label.font = UIFont.systemFont(ofSize: 26, weight: .bold)
+        label.text = "Занятий нет"
+        label.textColor = .black
+        label.translatesAutoresizingMaskIntoConstraints = false
+        return label
+    }()
+    
+    private let schedule = [[Schedule(subject: "Художественная мастерская", teacher: "Калмыкова Диана", startTime: 9),
                             Schedule(subject: "Подготовка к школе", teacher: "Алексеев Матвей", startTime: 10),
                             Schedule(subject: "Английский язык", teacher: "Масленникова Мия", startTime: 11),
                             Schedule(subject: "Логопед и развитие речи", teacher: "Комиссарова Елизавета", startTime: 12),
                             Schedule(subject: "Математика", teacher: "Прокофьева Василиса", startTime: 13),
                             Schedule(subject: "Математика", teacher: "Прокофьева Василиса", startTime: 13)],
-                            "Вторник": [Schedule(subject: "Художественная мастерская", teacher: "Калмыкова Диана", startTime: 9),
+                            [Schedule(subject: "Художественная мастерская", teacher: "Калмыкова Диана", startTime: 9),
                             Schedule(subject: "Подготовка к школе", teacher: "Алексеев Матвей", startTime: 10),
-                            Schedule(subject: "Английский язык", teacher: "Масленникова Мия", startTime: 11)]]
+                             Schedule(subject: "Английский язык", teacher: "Масленникова Мия", startTime: 11)], [], [], [], [], []]
     
-    var currentDay = String()
+    var currentDay = 0
     
-    private var collectionView: UICollectionView! = nil
+    var collectionView: UICollectionView! = nil
 
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -30,6 +39,7 @@ class ScheduleNestedView: UIView {
         layer.cornerRadius = 40
         layer.masksToBounds = true
         setupCollectionView()
+        setupNoScheduleLabel()
     }
     
     required init?(coder: NSCoder) {
@@ -59,16 +69,33 @@ class ScheduleNestedView: UIView {
         ])
     }
     
+    private func setupNoScheduleLabel(){
+        noSchedule.isHidden = true
+        addSubview(noSchedule)
+        NSLayoutConstraint.activate([
+            noSchedule.centerXAnchor.constraint(equalTo: centerXAnchor),
+            noSchedule.centerYAnchor.constraint(equalTo: centerYAnchor)
+        ])
+    }
+    
 }
 
 extension ScheduleNestedView: UICollectionViewDelegateFlowLayout, UICollectionViewDataSource{
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        schedule.count
+        if schedule[currentDay].count == 0{
+            collectionView.isHidden = true
+            noSchedule.isHidden = false
+        }
+        else{
+            collectionView.isHidden = false
+            noSchedule.isHidden = true
+        }
+        return schedule[currentDay].count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! ScheduleNestedCollectionViewCell
-        cell.setCell(index: indexPath.row, sub: schedule[indexPath.row])
+        cell.setCell(index: indexPath.row, sub: schedule[currentDay][indexPath.row])
         return cell
     }
     
