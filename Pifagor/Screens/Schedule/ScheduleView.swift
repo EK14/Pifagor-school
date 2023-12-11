@@ -13,6 +13,8 @@ class ScheduleView: UIView {
     private let shortDayOfWeek = ["Пн", "Вт", "Ср", "Чт", "Пт", "Сб", "Вс"]
     private var select = 0
     
+    private let scheduleNestedView = ScheduleNestedView()
+    
     private lazy var dayOfWeekLabel: UILabel = {
         let label = UILabel()
         label.font = UIFont.systemFont(ofSize: 36, weight: .bold)
@@ -26,7 +28,7 @@ class ScheduleView: UIView {
     override init(frame: CGRect) {
         super.init(frame: frame)
         setupBackgroundColor()
-        setupCollectionView()
+        setupCollectionViews()
         setupConstraints()
     }
     
@@ -42,6 +44,7 @@ class ScheduleView: UIView {
     private func setupConstraints(){
         addSubview(dayOfWeekLabel)
         addSubview(dayOfWeekcollectionView)
+        addSubview(scheduleNestedView)
         NSLayoutConstraint.activate([
             dayOfWeekLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20),
             dayOfWeekLabel.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 10),
@@ -49,11 +52,17 @@ class ScheduleView: UIView {
             dayOfWeekcollectionView.topAnchor.constraint(equalTo: dayOfWeekLabel.bottomAnchor, constant: 10),
             dayOfWeekcollectionView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20),
             dayOfWeekcollectionView.heightAnchor.constraint(equalToConstant: 70),
-            dayOfWeekcollectionView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -20)
+            dayOfWeekcollectionView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -20),
+
+            scheduleNestedView.topAnchor.constraint(equalTo: dayOfWeekcollectionView.bottomAnchor, constant: 20),
+            scheduleNestedView.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor),
+            scheduleNestedView.leadingAnchor.constraint(equalTo: leadingAnchor),
+            scheduleNestedView.trailingAnchor.constraint(equalTo: trailingAnchor),
         ])
     }
     
-    private func setupCollectionView(){
+    private func setupCollectionViews(){
+        //Pic a day of the week
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .horizontal
         layout.minimumInteritemSpacing = 10
@@ -103,3 +112,4 @@ extension ScheduleView: UICollectionViewDelegateFlowLayout, UICollectionViewData
         collectionView.deselectItem(at: indexPath, animated: true)
     }
 }
+

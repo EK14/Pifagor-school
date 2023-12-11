@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		3D3AD8E62B27026500AB4968 /* ScheduleNestedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D3AD8E52B27026500AB4968 /* ScheduleNestedView.swift */; };
+		3D3AD8E82B27057600AB4968 /* Schedule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D3AD8E72B27057600AB4968 /* Schedule.swift */; };
+		3D3AD8EA2B27156E00AB4968 /* ScheduleNestedCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D3AD8E92B27156E00AB4968 /* ScheduleNestedCollectionViewCell.swift */; };
+		3D3AD8ED2B27476A00AB4968 /* UILabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D3AD8EC2B27476A00AB4968 /* UILabel.swift */; };
 		3D3D13532B207F080035664D /* MyProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D3D13522B207F080035664D /* MyProfileViewController.swift */; };
 		3D3D13572B2080ED0035664D /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D3D13562B2080ED0035664D /* MenuViewController.swift */; };
 		3D3D13592B2086B20035664D /* MenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D3D13582B2086B20035664D /* MenuView.swift */; };
@@ -47,6 +50,9 @@
 
 /* Begin PBXFileReference section */
 		3D3AD8E52B27026500AB4968 /* ScheduleNestedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleNestedView.swift; sourceTree = "<group>"; };
+		3D3AD8E72B27057600AB4968 /* Schedule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Schedule.swift; sourceTree = "<group>"; };
+		3D3AD8E92B27156E00AB4968 /* ScheduleNestedCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleNestedCollectionViewCell.swift; sourceTree = "<group>"; };
+		3D3AD8EC2B27476A00AB4968 /* UILabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UILabel.swift; sourceTree = "<group>"; };
 		3D3D13522B207F080035664D /* MyProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyProfileViewController.swift; sourceTree = "<group>"; };
 		3D3D13562B2080ED0035664D /* MenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
 		3D3D13582B2086B20035664D /* MenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuView.swift; sourceTree = "<group>"; };
@@ -98,6 +104,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3D3AD8EB2B27157700AB4968 /* ScheduleNestedCollectionViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				3D3AD8E92B27156E00AB4968 /* ScheduleNestedCollectionViewCell.swift */,
+			);
+			path = ScheduleNestedCollectionViewCell;
+			sourceTree = "<group>";
+		};
 		3D5A73CF2B243E5F008E285B /* CollectionViewCell */ = {
 			isa = PBXGroup;
 			children = (
@@ -118,6 +132,7 @@
 			isa = PBXGroup;
 			children = (
 				3D5A73D32B2508BC008E285B /* UIViewController.swift */,
+				3D3AD8EC2B27476A00AB4968 /* UILabel.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -194,6 +209,7 @@
 		3D618FDB2B1E4DC9005BFFFC /* Schedule */ = {
 			isa = PBXGroup;
 			children = (
+				3D3AD8EB2B27157700AB4968 /* ScheduleNestedCollectionViewCell */,
 				3D5A73E22B264B7A008E285B /* WeekDayCollectionViewCell */,
 				3D5A73DC2B252478008E285B /* ScheduleViewController.swift */,
 				3D5A73E02B25925F008E285B /* ScheduleView.swift */,
@@ -275,6 +291,7 @@
 				3D618FC92B14C4E5005BFFFC /* SignUpUserRequest.swift */,
 				3D618FCE2B14CFC8005BFFFC /* SignInUserRequest.swift */,
 				3D5A73CD2B223DBE008E285B /* Balance.swift */,
+				3D3AD8E72B27057600AB4968 /* Schedule.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -386,6 +403,7 @@
 				3D5A73D92B2510E4008E285B /* HomeworkViewController.swift in Sources */,
 				3D5A73BA2B20B3E6008E285B /* MyProfileHeadView.swift in Sources */,
 				3D618FD72B159187005BFFFC /* MyError.swift in Sources */,
+				3D3AD8ED2B27476A00AB4968 /* UILabel.swift in Sources */,
 				3D5A73D22B243EA1008E285B /* MyProfileTableViewCell.swift in Sources */,
 				3D618FCA2B14C4E5005BFFFC /* SignUpUserRequest.swift in Sources */,
 				3D618FC62B14BF98005BFFFC /* SignUpViewController.swift in Sources */,
@@ -398,12 +416,14 @@
 				3D5A73DF2B2526C1008E285B /* AboutUsViewController.swift in Sources */,
 				3DA881442AE91A31009D5E45 /* AppDelegate.swift in Sources */,
 				3D618FC82B14BFAB005BFFFC /* SignUpView.swift in Sources */,
+				3D3AD8E82B27057600AB4968 /* Schedule.swift in Sources */,
 				3D5A73BE2B20B78D008E285B /* MyProfileView.swift in Sources */,
 				3D5A73D42B2508BC008E285B /* UIViewController.swift in Sources */,
 				3D3D13592B2086B20035664D /* MenuView.swift in Sources */,
 				3D3AD8E62B27026500AB4968 /* ScheduleNestedView.swift in Sources */,
 				3D618FD22B14D3B4005BFFFC /* ContainerViewController.swift in Sources */,
 				3D618FC12B14ACFD005BFFFC /* AuthService.swift in Sources */,
+				3D3AD8EA2B27156E00AB4968 /* ScheduleNestedCollectionViewCell.swift in Sources */,
 				3D618FD92B15EC58005BFFFC /* AlertManager.swift in Sources */,
 				3DF912A72AF66C6A00BFCFF0 /* SignInView.swift in Sources */,
 				3DA881462AE91A31009D5E45 /* SceneDelegate.swift in Sources */,
