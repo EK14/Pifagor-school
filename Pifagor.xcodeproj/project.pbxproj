@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3D3AD8E62B27026500AB4968 /* ScheduleNestedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D3AD8E52B27026500AB4968 /* ScheduleNestedView.swift */; };
 		3D3D13532B207F080035664D /* MyProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D3D13522B207F080035664D /* MyProfileViewController.swift */; };
 		3D3D13572B2080ED0035664D /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D3D13562B2080ED0035664D /* MenuViewController.swift */; };
 		3D3D13592B2086B20035664D /* MenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D3D13582B2086B20035664D /* MenuView.swift */; };
@@ -22,6 +23,8 @@
 		3D5A73DB2B252467008E285B /* MySubjectsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D5A73DA2B252467008E285B /* MySubjectsViewController.swift */; };
 		3D5A73DD2B252478008E285B /* ScheduleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D5A73DC2B252478008E285B /* ScheduleViewController.swift */; };
 		3D5A73DF2B2526C1008E285B /* AboutUsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D5A73DE2B2526C1008E285B /* AboutUsViewController.swift */; };
+		3D5A73E12B25925F008E285B /* ScheduleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D5A73E02B25925F008E285B /* ScheduleView.swift */; };
+		3D5A73E42B264BB5008E285B /* WeekDayCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D5A73E32B264BB5008E285B /* WeekDayCollectionViewCell.swift */; };
 		3D618FBC2B14AAFC005BFFFC /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3D618FBB2B14AAFC005BFFFC /* GoogleService-Info.plist */; };
 		3D618FBF2B14ABD8005BFFFC /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 3D618FBE2B14ABD8005BFFFC /* FirebaseAuth */; };
 		3D618FC12B14ACFD005BFFFC /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D618FC02B14ACFD005BFFFC /* AuthService.swift */; };
@@ -43,6 +46,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		3D3AD8E52B27026500AB4968 /* ScheduleNestedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleNestedView.swift; sourceTree = "<group>"; };
 		3D3D13522B207F080035664D /* MyProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyProfileViewController.swift; sourceTree = "<group>"; };
 		3D3D13562B2080ED0035664D /* MenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
 		3D3D13582B2086B20035664D /* MenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuView.swift; sourceTree = "<group>"; };
@@ -57,6 +61,8 @@
 		3D5A73DA2B252467008E285B /* MySubjectsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MySubjectsViewController.swift; sourceTree = "<group>"; };
 		3D5A73DC2B252478008E285B /* ScheduleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleViewController.swift; sourceTree = "<group>"; };
 		3D5A73DE2B2526C1008E285B /* AboutUsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutUsViewController.swift; sourceTree = "<group>"; };
+		3D5A73E02B25925F008E285B /* ScheduleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleView.swift; sourceTree = "<group>"; };
+		3D5A73E32B264BB5008E285B /* WeekDayCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeekDayCollectionViewCell.swift; sourceTree = "<group>"; };
 		3D618FBB2B14AAFC005BFFFC /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		3D618FC02B14ACFD005BFFFC /* AuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
 		3D618FC52B14BF98005BFFFC /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
@@ -114,6 +120,14 @@
 				3D5A73D32B2508BC008E285B /* UIViewController.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		3D5A73E22B264B7A008E285B /* WeekDayCollectionViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				3D5A73E32B264BB5008E285B /* WeekDayCollectionViewCell.swift */,
+			);
+			path = WeekDayCollectionViewCell;
 			sourceTree = "<group>";
 		};
 		3D618FC22B14BDA6005BFFFC /* Screens */ = {
@@ -180,7 +194,10 @@
 		3D618FDB2B1E4DC9005BFFFC /* Schedule */ = {
 			isa = PBXGroup;
 			children = (
+				3D5A73E22B264B7A008E285B /* WeekDayCollectionViewCell */,
 				3D5A73DC2B252478008E285B /* ScheduleViewController.swift */,
+				3D5A73E02B25925F008E285B /* ScheduleView.swift */,
+				3D3AD8E52B27026500AB4968 /* ScheduleNestedView.swift */,
 			);
 			path = Schedule;
 			sourceTree = "<group>";
@@ -377,18 +394,21 @@
 				3D5A73CC2B222BE5008E285B /* SubjectBalanceCollectionViewCell.swift in Sources */,
 				3DA881482AE91A31009D5E45 /* SignInViewController.swift in Sources */,
 				3D5A73DD2B252478008E285B /* ScheduleViewController.swift in Sources */,
+				3D5A73E12B25925F008E285B /* ScheduleView.swift in Sources */,
 				3D5A73DF2B2526C1008E285B /* AboutUsViewController.swift in Sources */,
 				3DA881442AE91A31009D5E45 /* AppDelegate.swift in Sources */,
 				3D618FC82B14BFAB005BFFFC /* SignUpView.swift in Sources */,
 				3D5A73BE2B20B78D008E285B /* MyProfileView.swift in Sources */,
 				3D5A73D42B2508BC008E285B /* UIViewController.swift in Sources */,
 				3D3D13592B2086B20035664D /* MenuView.swift in Sources */,
+				3D3AD8E62B27026500AB4968 /* ScheduleNestedView.swift in Sources */,
 				3D618FD22B14D3B4005BFFFC /* ContainerViewController.swift in Sources */,
 				3D618FC12B14ACFD005BFFFC /* AuthService.swift in Sources */,
 				3D618FD92B15EC58005BFFFC /* AlertManager.swift in Sources */,
 				3DF912A72AF66C6A00BFCFF0 /* SignInView.swift in Sources */,
 				3DA881462AE91A31009D5E45 /* SceneDelegate.swift in Sources */,
 				3D618FCF2B14CFC8005BFFFC /* SignInUserRequest.swift in Sources */,
+				3D5A73E42B264BB5008E285B /* WeekDayCollectionViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

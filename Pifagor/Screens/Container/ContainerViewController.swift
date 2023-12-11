@@ -86,6 +86,7 @@ extension ContainerViewController: MyProfileViewControllerDelegate, MenuViewCont
         myProfileVC.title = screen.rawValue
         myProfileVC.addChild(vc)
         myProfileVC.view.addSubview(vc.view)
+        vc.view.frame = view.frame
         vc.didMove(toParent: myProfileVC)
     }
     
