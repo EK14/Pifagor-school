@@ -508,8 +508,8 @@
             filePath = "Pifagor/Screens/Schedule/ScheduleNestedCollectionViewCell/ScheduleNestedCollectionViewCell.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "34"
-            endingLineNumber = "34"
+            startingLineNumber = "54"
+            endingLineNumber = "54"
             landmarkName = "setupSubviewsAndConstraints()"
             landmarkType = "7">
          </BreakpointContent>
@@ -527,6 +527,22 @@
             startingLineNumber = "13"
             endingLineNumber = "13"
             landmarkName = "prepareForReuse()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "A54CA651-E917-43DF-871E-2EFE11042A9F"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Pifagor/Screens/Schedule/ScheduleNestedCollectionViewCell/ScheduleNestedCollectionViewCell.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "44"
+            endingLineNumber = "44"
+            landmarkName = "setupTimeLabel(time:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

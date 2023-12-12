@@ -12,17 +12,37 @@ class ScheduleNestedCollectionViewCell: UICollectionViewCell{
     override func prepareForReuse() {
         thelast = false
         layer.cornerRadius = 0
+        circle.fillColor = UIColor.white.cgColor
     }
     
     private var subject: InnerView! = nil
     var thelast = false
+    var circle = CAShapeLayer()
+    
+    private lazy var timeLabel: UILabel = {
+        let label = UILabel()
+        label.numberOfLines = 0
+        label.lineBreakMode = .byWordWrapping
+        label.textAlignment = .right
+        return label
+    }()
     
     func setCell(index: Int, sub: Schedule){
         subject = InnerView(index: index, subject: sub)
+        setupTimeLabel(time: sub.startTime)
         setupBackgroundColor()
         setupSubviewsAndConstraints()
         drawVerticalLine()
         drawCircle()
+    }
+    
+    private func setupTimeLabel(time: Int){
+        timeLabel.translatesAutoresizingMaskIntoConstraints = false
+        let text = NSMutableAttributedString.init(string: "\(time):00\n\(time+1):00")
+        text.setAttributes([NSAttributedString.Key.font: UIFont.systemFont(ofSize: 18, weight: .medium)],
+                           range: NSMakeRange(0, "\(time):00\n".count-1))
+        text.setAttributes([NSAttributedString.Key.font: UIFont.systemFont(ofSize: 15, weight: .thin)], range: NSMakeRange("\(time):00\n".count, "\(time+1):00".count))
+        timeLabel.attributedText = text
     }
     
     private func setupBackgroundColor(){
@@ -37,13 +57,17 @@ class ScheduleNestedCollectionViewCell: UICollectionViewCell{
         layer.borderColor = UIColor.clear.cgColor
         subject.layer.cornerRadius = 10
         subject.clipsToBounds = true
-        addSubview(subject)
         subject.translatesAutoresizingMaskIntoConstraints = false
+        addSubview(subject)
+        addSubview(timeLabel)
         NSLayoutConstraint.activate([
             subject.topAnchor.constraint(equalTo: topAnchor, constant: bounds.size.height*0.2),
             subject.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -20),
             subject.leadingAnchor.constraint(equalTo: leadingAnchor, constant: bounds.size.width*0.3),
             subject.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -5),
+            
+            timeLabel.topAnchor.constraint(equalTo: topAnchor, constant: bounds.size.height*0.2),
+            timeLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -(bounds.width - (bounds.width * 0.3 - 15)) - 5)
         ])
     }
     
@@ -59,13 +83,12 @@ class ScheduleNestedCollectionViewCell: UICollectionViewCell{
     }
     
     func drawCircle(){
-        let caLayer = CAShapeLayer()
         let bezierPath = UIBezierPath(ovalIn: CGRect(x: bounds.width * 0.3 - 15, y: bounds.size.height*0.2 + 3, width: 10, height: 10))
-        caLayer.fillColor = UIColor.white.cgColor
-        caLayer.path = bezierPath.cgPath
-        caLayer.strokeColor = UIColor.black.cgColor
-        caLayer.lineWidth = 2
-        layer.addSublayer(caLayer)
+        circle.fillColor = UIColor.white.cgColor
+        circle.path = bezierPath.cgPath
+        circle.strokeColor = UIColor.black.cgColor
+        circle.lineWidth = 2
+        layer.addSublayer(circle)
     }
     
 }
