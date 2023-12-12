@@ -7,15 +7,22 @@
 
 import UIKit
 
-class ScheduleNestedCollectionViewCell: UICollectionViewCell {
+class ScheduleNestedCollectionViewCell: UICollectionViewCell{
+    
+    override func prepareForReuse() {
+        thelast = false
+        layer.cornerRadius = 0
+    }
     
     private var subject: InnerView! = nil
+    var thelast = false
     
     func setCell(index: Int, sub: Schedule){
         subject = InnerView(index: index, subject: sub)
         setupBackgroundColor()
         setupSubviewsAndConstraints()
         drawVerticalLine()
+        drawCircle()
     }
     
     private func setupBackgroundColor(){
@@ -23,6 +30,10 @@ class ScheduleNestedCollectionViewCell: UICollectionViewCell {
     }
     
     private func setupSubviewsAndConstraints(){
+        if thelast{
+            layer.cornerRadius = 40
+            layer.maskedCorners = [.layerMaxXMaxYCorner, .layerMinXMaxYCorner]
+        }
         layer.borderColor = UIColor.clear.cgColor
         subject.layer.cornerRadius = 10
         subject.clipsToBounds = true
@@ -36,22 +47,21 @@ class ScheduleNestedCollectionViewCell: UICollectionViewCell {
         ])
     }
     
-//    override func draw(_ rect: CGRect) {
-//        super.draw(rect)
-//
-//        if let context = UIGraphicsGetCurrentContext() {
-//            context.setLineWidth(2)
-//            context.move(to: CGPoint(x: bounds.width * 0.3 - 10, y: 0))
-//            context.addLine(to: CGPoint(x: bounds.width * 0.3 - 10, y: bounds.height))
-//            context.strokePath()
-//        }
-//    }
-    
     func drawVerticalLine(){
         let caLayer = CAShapeLayer()
         let bezierPath = UIBezierPath()
         bezierPath.move(to: CGPoint(x: bounds.width * 0.3 - 10, y: 0))
         bezierPath.addLine(to: CGPoint(x: bounds.width * 0.3 - 10, y: bounds.height))
+        caLayer.path = bezierPath.cgPath
+        caLayer.strokeColor = UIColor.black.cgColor
+        caLayer.lineWidth = 2
+        layer.addSublayer(caLayer)
+    }
+    
+    func drawCircle(){
+        let caLayer = CAShapeLayer()
+        let bezierPath = UIBezierPath(ovalIn: CGRect(x: bounds.width * 0.3 - 15, y: bounds.size.height*0.2 + 3, width: 10, height: 10))
+        caLayer.fillColor = UIColor.white.cgColor
         caLayer.path = bezierPath.cgPath
         caLayer.strokeColor = UIColor.black.cgColor
         caLayer.lineWidth = 2
@@ -69,7 +79,7 @@ class InnerView: UIView{
         let label = UILabel()
         label.font = UIFont.systemFont(ofSize: 18, weight: .bold)
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.numberOfLines = 0
+        label.numberOfLines = 2
         label.lineBreakMode = .byWordWrapping
         return label
     }()

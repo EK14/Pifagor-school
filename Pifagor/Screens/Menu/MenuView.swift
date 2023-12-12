@@ -118,7 +118,7 @@ extension MenuView: UITableViewDelegate, UITableViewDataSource{
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         switch indexPath.row{
         case 0:
-            return UIScreen.main.bounds.size.height*0.31
+            return UITableView.automaticDimension
         default:
             return UIScreen.main.bounds.size.height*0.08
         }

@@ -7,6 +7,10 @@
 
 import UIKit
 
+protocol BoundingWidthAdoptable {
+    func adoptBoundingWidth(_ width: CGFloat)
+}
+
 class ScheduleNestedView: UIView {
     
     private lazy var noSchedule: UILabel = {
@@ -18,14 +22,12 @@ class ScheduleNestedView: UIView {
         return label
     }()
     
-    private let schedule = [[Schedule(subject: "Художественная мастерская", teacher: "Калмыкова Диана", startTime: 9),
-                            Schedule(subject: "Подготовка к школе", teacher: "Алексеев Матвей", startTime: 10),
-                            Schedule(subject: "Английский язык", teacher: "Масленникова Мия", startTime: 11),
-                            Schedule(subject: "Логопед и развитие речи", teacher: "Комиссарова Елизавета", startTime: 12),
-                            Schedule(subject: "Математика", teacher: "Прокофьева Василиса", startTime: 13),
-                            Schedule(subject: "Математика", teacher: "Прокофьева Василиса", startTime: 13)],
+    private let schedule = [[Schedule(subject: "Подготовка к школе", teacher: "Алексеев Матвей", startTime: 10),
+                            Schedule(subject: "Английский язык", teacher: "Масленникова Мия", startTime: 11)],
                             [Schedule(subject: "Художественная мастерская", teacher: "Калмыкова Диана", startTime: 9),
                             Schedule(subject: "Подготовка к школе", teacher: "Алексеев Матвей", startTime: 10),
+                             Schedule(subject: "Английский язык", teacher: "Масленникова Мия", startTime: 11),
+                             Schedule(subject: "Английский язык", teacher: "Масленникова Мия", startTime: 11),
                              Schedule(subject: "Английский язык", teacher: "Масленникова Мия", startTime: 11)], [], [], [], [], []]
     
     var currentDay = 0
@@ -95,12 +97,18 @@ extension ScheduleNestedView: UICollectionViewDelegateFlowLayout, UICollectionVi
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! ScheduleNestedCollectionViewCell
+        if indexPath.row == schedule[currentDay].count - 1{
+            cell.thelast = true
+        }
         cell.setCell(index: indexPath.row, sub: schedule[currentDay][indexPath.row])
         return cell
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: bounds.size.width, height: bounds.size.height / 5)
+        return CGSize(width: bounds.size.width, height: 130)
     }
+
+    
+    
     
 }

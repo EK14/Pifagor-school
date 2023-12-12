@@ -20,6 +20,7 @@ class MyProfileTableViewCell: UITableViewCell {
     
     lazy var name: UILabel = {
         let name = UILabel()
+        name.text = " "
         name.font = UIFont.systemFont(ofSize: 18, weight: .bold)
         name.translatesAutoresizingMaskIntoConstraints = false
         return name
@@ -60,7 +61,7 @@ class MyProfileTableViewCell: UITableViewCell {
         addSubview(studentLabel)
         addSubview(myProfile)
         NSLayoutConstraint.activate([
-            profileImage.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: UIViewController().topbarHeight),
+            profileImage.topAnchor.constraint(equalTo: topAnchor, constant: UIViewController().topbarHeight),
             profileImage.centerXAnchor.constraint(equalTo: centerXAnchor, constant: -50),
             profileImage.widthAnchor.constraint(equalToConstant: UIScreen.main.bounds.size.width*0.33),
             profileImage.heightAnchor.constraint(equalToConstant: UIScreen.main.bounds.size.width*0.33),
@@ -73,6 +74,7 @@ class MyProfileTableViewCell: UITableViewCell {
             
             myProfile.topAnchor.constraint(equalTo: studentLabel.bottomAnchor, constant: 15),
             myProfile.centerXAnchor.constraint(equalTo: centerXAnchor, constant: -50),
+            myProfile.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -10)
         ])
     }
 }

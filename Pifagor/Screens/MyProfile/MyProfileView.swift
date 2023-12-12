@@ -9,7 +9,7 @@ import UIKit
 
 class MyProfileView: UIView {
     
-    let myProfileHeadView = MyProfileHeadView(frame: CGRect(x: 0, y: 0, width: UIScreen.main.bounds.size.width, height: UIScreen.main.bounds.size.height*0.41))
+    let myProfileHeadView = MyProfileHeadView()
     
     private let cellColors = ["orange", "blue", "purple", "green"]
     var balance: [Balance] = []
@@ -26,7 +26,6 @@ class MyProfileView: UIView {
 
     override init(frame: CGRect) {
         super.init(frame: frame)
-        self.addSubview(myProfileHeadView)
         setupBackgroundColor()
         setupCollectionView()
         setupConstraints()
@@ -41,8 +40,10 @@ class MyProfileView: UIView {
     }
     
     private func setupConstraints(){
+        myProfileHeadView.translatesAutoresizingMaskIntoConstraints = false
         addSubview(headerTitle)
         addSubview(collectionView)
+        addSubview(myProfileHeadView)
         NSLayoutConstraint.activate([
             headerTitle.topAnchor.constraint(equalTo: myProfileHeadView.bottomAnchor, constant: 20),
             headerTitle.centerXAnchor.constraint(equalTo: centerXAnchor),
@@ -50,7 +51,11 @@ class MyProfileView: UIView {
             collectionView.topAnchor.constraint(equalTo: headerTitle.bottomAnchor, constant: 20),
             collectionView.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor),
             collectionView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -20),
-            collectionView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20)
+            collectionView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20),
+            
+            myProfileHeadView.topAnchor.constraint(equalTo: topAnchor),
+            myProfileHeadView.trailingAnchor.constraint(equalTo: trailingAnchor),
+            myProfileHeadView.leadingAnchor.constraint(equalTo: leadingAnchor)
         ])
     }
     
