@@ -8,22 +8,36 @@
 import UIKit
 
 class MySubjectsViewController: UIViewController {
+    
+    private let mySubjectsView = MySubjectsView()
+    private var viewState = true
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .white
-        // Do any additional setup after loading the view.
+        mySubjectsView.delegate = self
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    override func loadView() {
+        view = mySubjectsView
     }
-    */
+}
 
+extension MySubjectsViewController: mySubjectsViewDelegate{
+    func mySubjBtnTouched() {
+        if !viewState{
+            mySubjectsView.mySubjBtn.setTitleColor(UIColor(named: "orange"), for: .normal)
+            mySubjectsView.elseBtn.setTitleColor(UIColor(named: "darkGray"), for: .normal)
+        }
+        viewState = true
+    }
+    
+    func elseBtnTouched() {
+        if viewState{
+            mySubjectsView.mySubjBtn.setTitleColor(UIColor(named: "darkGray"), for: .normal)
+            mySubjectsView.elseBtn.setTitleColor(UIColor(named: "orange"), for: .normal)
+        }
+        viewState = false
+    }
+    
+    
 }
