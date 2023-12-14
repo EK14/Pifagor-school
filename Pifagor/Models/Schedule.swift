@@ -7,7 +7,11 @@
 
 import Foundation
 
-struct Schedule{
+struct Schedule: Decodable, Comparable{
+    static func < (lhs: Schedule, rhs: Schedule) -> Bool {
+        lhs.startTime < rhs.startTime
+    }
+    
     let subject: String
     let teacher: String
     let startTime: Int

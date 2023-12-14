@@ -45,20 +45,9 @@ class MyProfileViewController: UIViewController {
             guard name == name else {return}
             self?.myProfileView.myProfileHeadView.name.text = name
         }, field: "username")
-
-        AuthService.shared.getUserData(completion: { email in
-            guard email == email else {return}
-            let text = NSMutableAttributedString.init(string: "Электронная почта: \(email)")
-            text.setAttributes([NSAttributedString.Key.font: UIFont.systemFont(ofSize: 15, weight: .medium)],
-                               range: NSMakeRange(0, "Электронная почта:".count))
-            text.setAttributes([NSAttributedString.Key.font: UIFont.systemFont(ofSize: 15, weight: .thin)], range: NSMakeRange("Электронная почта:".count+1, email.count))
-            self.myProfileView.myProfileHeadView.emailLabel.attributedText = text
-        }, field: "email")
-        
     }
     
     private func setupNavController(){
-//        title = "Личный кабинет"
         let item = UIBarButtonItem()
         item.image = UIImage(systemName: "list.dash")
         item.style = .plain

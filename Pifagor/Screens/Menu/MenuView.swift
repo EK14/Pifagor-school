@@ -17,7 +17,7 @@ class MenuView: UIView {
     enum MenuOptions: String, CaseIterable{
         case myProfile = "Личный кабинет"
         case schedule = "Расписание"
-        case mySubjects = "Мои предметы"
+        case mySubjects = "Предметы"
         case homework = "Домашнее задание"
         case aboutUs = "О нас"
         
@@ -73,10 +73,10 @@ class MenuView: UIView {
         addSubview(logoutBtn)
         addSubview(menuTableView)
         NSLayoutConstraint.activate([
-            logoutBtn.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor),
+            logoutBtn.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor, constant: -5),
             logoutBtn.centerXAnchor.constraint(equalTo: centerXAnchor, constant: -50),
             
-            menuTableView.topAnchor.constraint(equalTo: topAnchor),
+            menuTableView.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 30),
             menuTableView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20),
             menuTableView.trailingAnchor.constraint(equalTo: trailingAnchor),
             menuTableView.bottomAnchor.constraint(equalTo: logoutBtn.topAnchor)

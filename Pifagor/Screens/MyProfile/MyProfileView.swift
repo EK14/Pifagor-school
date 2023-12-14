@@ -41,6 +41,8 @@ class MyProfileView: UIView {
     
     private func setupConstraints(){
         myProfileHeadView.translatesAutoresizingMaskIntoConstraints = false
+        myProfileHeadView.layer.cornerRadius = 40
+        myProfileHeadView.layer.maskedCorners = [.layerMaxXMaxYCorner, .layerMinXMaxYCorner]
         addSubview(headerTitle)
         addSubview(collectionView)
         addSubview(myProfileHeadView)

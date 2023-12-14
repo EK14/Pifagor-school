@@ -61,7 +61,7 @@ class MyProfileTableViewCell: UITableViewCell {
         addSubview(studentLabel)
         addSubview(myProfile)
         NSLayoutConstraint.activate([
-            profileImage.topAnchor.constraint(equalTo: topAnchor, constant: UIViewController().topbarHeight),
+            profileImage.topAnchor.constraint(equalTo: topAnchor, constant: 10),
             profileImage.centerXAnchor.constraint(equalTo: centerXAnchor, constant: -50),
             profileImage.widthAnchor.constraint(equalToConstant: UIScreen.main.bounds.size.width*0.33),
             profileImage.heightAnchor.constraint(equalToConstant: UIScreen.main.bounds.size.width*0.33),

@@ -22,13 +22,7 @@ class ScheduleNestedView: UIView {
         return label
     }()
     
-    private let schedule = [[Schedule(subject: "Подготовка к школе", teacher: "Алексеев Матвей", startTime: 10),
-                            Schedule(subject: "Английский язык", teacher: "Масленникова Мия", startTime: 11)],
-                            [Schedule(subject: "Художественная мастерская", teacher: "Калмыкова Диана", startTime: 9),
-                            Schedule(subject: "Подготовка к школе", teacher: "Алексеев Матвей", startTime: 10),
-                             Schedule(subject: "Английский язык", teacher: "Масленникова Мия", startTime: 11),
-                             Schedule(subject: "Английский язык", teacher: "Масленникова Мия", startTime: 11),
-                             Schedule(subject: "Английский язык", teacher: "Масленникова Мия", startTime: 11)], [], [], [], [], []]
+    private var schedule = [[Schedule]]()
     
     var currentDay = 0
     
@@ -36,6 +30,9 @@ class ScheduleNestedView: UIView {
 
     override init(frame: CGRect) {
         super.init(frame: frame)
+        async{ [weak self] in
+            schedule = try await AuthService.shared.getScheduleData()
+        }
         backgroundColor = UIColor(named: "lightgray")
         translatesAutoresizingMaskIntoConstraints = false
         layer.cornerRadius = 40

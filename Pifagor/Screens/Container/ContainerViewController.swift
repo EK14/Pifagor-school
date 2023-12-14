@@ -41,7 +41,6 @@ class ContainerViewController: UIViewController {
         myProfileVC.delegate = self
         myProfileVC.view.addSubview(back)
         back.isHidden = true
-        myProfileVC.title = "Личный кабинет"
         let nav = UINavigationController(rootViewController: myProfileVC)
         addChild(nav)
         view.addSubview(nav.view)
@@ -83,7 +82,6 @@ extension ContainerViewController: MyProfileViewControllerDelegate, MenuViewCont
             break
         }
         vc.view.addSubview(back)
-        myProfileVC.title = screen.rawValue
         myProfileVC.addChild(vc)
         myProfileVC.view.addSubview(vc.view)
         vc.view.frame = view.frame
@@ -99,7 +97,6 @@ extension ContainerViewController: MyProfileViewControllerDelegate, MenuViewCont
         aboutUsVC.didMove(toParent: nil)
         homeworkVC.view.removeFromSuperview()
         homeworkVC.didMove(toParent: nil)
-        myProfileVC.title = "Личный кабинет"
         myProfileVC.view.addSubview(back)
     }
     

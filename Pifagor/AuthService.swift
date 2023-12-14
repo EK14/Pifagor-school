@@ -148,4 +148,21 @@ class AuthService{
             completion(data)
         }
     }
+    
+    func getScheduleData() async throws -> [[Schedule]]{
+        let weekDays = ["monday", "tuesday", "wednesday", "thursday", "friday", "saturday", "sunday"]
+        let db = Firestore.firestore()
+        var data = [[Schedule]]()
+        
+        for x in 0...(weekDays.count-1){
+            let snap = try await db.collection(weekDays[x]).getDocuments()
+            data.append([])
+            for document in snap.documents{
+                let schedule = try document.data(as: Schedule.self)
+                data[x].append(schedule)
+            }
+            data[x].sort()
+        }
+        return data
+    }
 }
