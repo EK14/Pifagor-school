@@ -12,7 +12,7 @@ protocol mySubjectsViewDelegate: AnyObject{
     func elseBtnTouched()
 }
 
-class MySubjectsView: UIView {
+class MySubjectsView: UIView{
     
     private lazy var subjLabel: UILabel = {
         let label = UILabel()
@@ -177,11 +177,23 @@ extension MySubjectsView: UICollectionViewDelegateFlowLayout, UICollectionViewDa
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! MySubjectsCollectionViewCell
-        cell.setup(name: subjects["\(checkState!())"]?[indexPath.row], index: indexPath.row)
+        cell.delegate = self
+        cell.setup(name: subjects["\(checkState!())"]?[indexPath.row], index: indexPath.row, state: checkState!())
         return cell
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         return CGSize(width: UIScreen.main.bounds.size.width/2 - 30, height: UIScreen.main.bounds.size.width/2 - 30)
+    }
+}
+
+extension MySubjectsView: MySubjectsCollectionViewCellDelegate{
+    func addOrRemoveBtnDidTouched(index: Int) {
+        guard let state = checkState?() else {return}
+        guard var reverse = subjects["\(state)"] else {return}
+        subjects["\(!state)"]?.append(reverse[index])
+        reverse.remove(at: index)
+        subjects["\(state)"] = reverse
+        collectionView.reloadData()
     }
 }

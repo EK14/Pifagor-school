@@ -7,9 +7,15 @@
 
 import UIKit
 
+protocol MySubjectsCollectionViewCellDelegate: AnyObject{
+    func addOrRemoveBtnDidTouched(index: Int)
+}
+
 class MySubjectsCollectionViewCell: UICollectionViewCell {
     
     private let colors = ["orange", "blue", "purple", "green"]
+    var delegate: MySubjectsCollectionViewCellDelegate?
+    private var index = Int()
     
     private lazy var nameLabel: UILabel = {
         let label = UILabel()
@@ -34,21 +40,27 @@ class MySubjectsCollectionViewCell: UICollectionViewCell {
     private lazy var addOrRemoveBtn: UIButton = {
         let btn = UIButton()
         btn.backgroundColor = UIColor(named: "lightgray")
-        btn.setImage(UIImage(systemName: "plus"), for: .normal)
         btn.translatesAutoresizingMaskIntoConstraints = false
         btn.layer.cornerRadius = (contentView.bounds.width / 4) / 2
         btn.addTarget(self, action: #selector(addOrRemoveBtnDidTouched), for: .touchUpInside)
         return btn
     }()
     
-    func setup(name: String?, index: Int){
+    func setup(name: String?, index: Int, state: Bool){
         guard let name = name else {return}
+        self.index = index
         nameLabel.text = name
         img.backgroundColor = UIColor(named: colors[index % colors.count])
         backgroundColor = .white
         layer.cornerRadius = 20
         setupConstraints()
         setImage(name: name)
+        if state{
+            addOrRemoveBtn.setImage(UIImage(systemName: "minus"), for: .normal)
+        }
+        else{
+            addOrRemoveBtn.setImage(UIImage(systemName: "plus"), for: .normal)
+        }
     }
     
     private func setupConstraints(){
@@ -96,6 +108,6 @@ class MySubjectsCollectionViewCell: UICollectionViewCell {
     
     @objc
     private func addOrRemoveBtnDidTouched(){
-        print("touched")
+        delegate?.addOrRemoveBtnDidTouched(index: self.index)
     }
 }
