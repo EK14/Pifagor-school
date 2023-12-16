@@ -179,4 +179,15 @@ class AuthService{
             completion(data)
         }
     }
+    
+    func updateSubjectsInformation(subjects: [String: [String]]){
+        guard let uid = Auth.auth().currentUser?.uid else {return}
+        let db = Firestore.firestore()
+        
+        db.collection("users")
+            .document(uid)
+            .updateData([
+                "subjects": subjects
+            ])
+    }
 }

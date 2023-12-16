@@ -195,5 +195,6 @@ extension MySubjectsView: MySubjectsCollectionViewCellDelegate{
         reverse.remove(at: index)
         subjects["\(state)"] = reverse
         collectionView.reloadData()
+        AuthService.shared.updateSubjectsInformation(subjects: self.subjects)
     }
 }

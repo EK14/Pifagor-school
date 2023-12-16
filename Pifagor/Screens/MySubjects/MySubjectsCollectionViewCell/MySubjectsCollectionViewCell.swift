@@ -37,6 +37,11 @@ class MySubjectsCollectionViewCell: UICollectionViewCell {
         return img
     }()
     
+//    override func layoutSubviews() {
+//        super.layoutSubviews()
+//        img.layer.cornerRadius = img.bounds.width / 2 // Теперь это будет работать правильно
+//    }
+    
     private lazy var addOrRemoveBtn: UIButton = {
         let btn = UIButton()
         btn.backgroundColor = UIColor(named: "lightgray")
@@ -53,8 +58,8 @@ class MySubjectsCollectionViewCell: UICollectionViewCell {
         img.backgroundColor = UIColor(named: colors[index % colors.count])
         backgroundColor = .white
         layer.cornerRadius = 20
-        setupConstraints()
         setImage(name: name)
+        setupConstraints()
         if state{
             addOrRemoveBtn.setImage(UIImage(systemName: "minus"), for: .normal)
         }
@@ -103,7 +108,21 @@ class MySubjectsCollectionViewCell: UICollectionViewCell {
         default:
             systemName = "questionmark"
         }
-        img.image = UIImage(systemName: systemName)
+        //Deleting paddings for SF Symbols
+        let cfg = UIImage.SymbolConfiguration(scale: .medium)
+        guard let imgA = UIImage(systemName: systemName, withConfiguration: cfg)?.withTintColor(.black, renderingMode: .alwaysOriginal) else {
+             fatalError("Could not load SF Symbol: \(systemName)!")
+         }
+         
+         // get a cgRef from imgA
+         guard let cgRef = imgA.cgImage else {
+             fatalError("Could not get cgImage!")
+         }
+         // create imgB from the cgRef
+         let imgB = UIImage(cgImage: cgRef, scale: imgA.scale, orientation: imgA.imageOrientation)
+             .withTintColor(.black, renderingMode: .alwaysOriginal)
+         
+        img.image = imgB
     }
     
     @objc
