@@ -17,7 +17,7 @@ class ScheduleNestedView: UIView {
         let label = UILabel()
         label.font = UIFont.systemFont(ofSize: 26, weight: .bold)
         label.text = "Занятий нет"
-        label.textColor = .black
+        label.textColor = UIColor(named: "darkGray")
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()

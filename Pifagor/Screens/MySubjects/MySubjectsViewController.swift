@@ -9,16 +9,33 @@ import UIKit
 
 class MySubjectsViewController: UIViewController {
     
-    private let mySubjectsView = MySubjectsView()
+    private var mySubjectsView = MySubjectsView()
     private var viewState = true
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        getClosuresRequests()
         mySubjectsView.delegate = self
+        loadSubjData()
     }
     
     override func loadView() {
         view = mySubjectsView
+    }
+    
+    
+    private func getClosuresRequests(){
+        mySubjectsView.checkState = { [weak self] in
+            guard let self = self else {return false}
+            return self.viewState
+        }
+    }
+    
+    private func loadSubjData(){
+        AuthService.shared.getUserSubjects { [weak self] subjects in
+            self?.mySubjectsView.subjects = subjects
+            self?.mySubjectsView.collectionView.reloadData()
+        }
     }
 }
 
@@ -27,6 +44,7 @@ extension MySubjectsViewController: mySubjectsViewDelegate{
         if !viewState{
             mySubjectsView.mySubjBtn.setTitleColor(UIColor(named: "orange"), for: .normal)
             mySubjectsView.elseBtn.setTitleColor(UIColor(named: "darkGray"), for: .normal)
+            mySubjectsView.collectionView.reloadData()
         }
         viewState = true
     }
@@ -35,9 +53,12 @@ extension MySubjectsViewController: mySubjectsViewDelegate{
         if viewState{
             mySubjectsView.mySubjBtn.setTitleColor(UIColor(named: "darkGray"), for: .normal)
             mySubjectsView.elseBtn.setTitleColor(UIColor(named: "orange"), for: .normal)
+            mySubjectsView.collectionView.reloadData()
         }
         viewState = false
     }
+    
+    
     
     
 }

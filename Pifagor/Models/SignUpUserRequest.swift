@@ -11,4 +11,5 @@ struct SignUpUserRequest{
     let name: String
     let email: String
     let password: String
+    let subjects: [String: [String]]
 }

@@ -16,9 +16,9 @@ class SignUpViewController: UIViewController {
         self.navigationItem.hidesBackButton = true
         signUpView.buttonTouched = {[weak self] param, name, email, password in
             switch param{
-            case button.SignIn:
-                self?.signIn(name: name, email: email, password: password)
             case button.SignUp:
+                self?.signUp(name: name, email: email, password: password)
+            case button.SignIn:
                 self?.navigationController?.popViewController(animated: true)
             }
         }
@@ -28,7 +28,7 @@ class SignUpViewController: UIViewController {
         view = signUpView
     }
     
-    private func signIn(name: String, email: String, password: String){
+    private func signUp(name: String, email: String, password: String){
         if name == ""{
             callAlert(error: MyError.noNameError)
             return
@@ -41,7 +41,12 @@ class SignUpViewController: UIViewController {
             callAlert(error: MyError.noPasswordError)
             return
         }
-        let userRequest = SignUpUserRequest(name: name, email: email, password: password)
+        let subjects = ["false": ["Художественная мастерская", "Английский язык", "Логопед и развитие речи", "Программирование", "Математика",
+                                  "Подготовка к школе"],
+                        "true": []]
+        
+        let userRequest = SignUpUserRequest(name: name, email: email, password: password, subjects: subjects)
+        
         AuthService.shared.signUpUser(with: userRequest) { [self] wasSignedUp, err in
             if let error = err{
                 callAlert(error: error)

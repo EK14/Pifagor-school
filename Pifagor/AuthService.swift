@@ -24,6 +24,7 @@ class AuthService{
         let name = userRequest.name
         let email = userRequest.email
         let password = userRequest.password
+        let subjects = userRequest.subjects
         
         Auth.auth().createUser(withEmail: email, password: password) { res, err in
             if let error = err {
@@ -44,6 +45,7 @@ class AuthService{
                     "username": name,
                     "email": email,
                     "password": password,
+                    "subjects": subjects
                 ]) { error in
                     if let error = err {
                         completion(false, error)
@@ -164,5 +166,17 @@ class AuthService{
             data[x].sort()
         }
         return data
+    }
+    
+    func getUserSubjects(completion: @escaping ([String: [String]]) -> ()){
+        guard let uid = Auth.auth().currentUser?.uid else {return}
+        Firestore.firestore().collection("users").document(uid).getDocument { snap, err in
+            guard err == nil else {return}
+            
+            guard let document = snap?.data() else {return}
+            
+            let data = document["subjects"] as! [String: [String]]
+            completion(data)
+        }
     }
 }
