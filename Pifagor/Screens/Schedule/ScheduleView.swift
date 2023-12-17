@@ -13,7 +13,7 @@ class ScheduleView: UIView {
     private let shortDayOfWeek = ["Пн", "Вт", "Ср", "Чт", "Пт", "Сб", "Вс"]
     private var select = 0
     
-    private let scheduleNestedView = ScheduleNestedView()
+    let scheduleNestedView = ScheduleNestedView()
     
     private lazy var dayOfWeekLabel: UILabel = {
         let label = UILabel()

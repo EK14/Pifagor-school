@@ -7,10 +7,15 @@
 
 import UIKit
 
+protocol MySubjectsViewControllerDelegate: AnyObject{
+    func addOrRemoveBtnDidTouched()
+}
+
 class MySubjectsViewController: UIViewController {
     
     private var mySubjectsView = MySubjectsView()
     private var viewState = true
+    var delegate: MySubjectsViewControllerDelegate?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -40,6 +45,10 @@ class MySubjectsViewController: UIViewController {
 }
 
 extension MySubjectsViewController: mySubjectsViewDelegate{
+    func addOrRemoveBtnDidTouched() {
+        delegate?.addOrRemoveBtnDidTouched()
+    }
+    
     func mySubjBtnTouched() {
         if !viewState{
             mySubjectsView.mySubjBtn.setTitleColor(UIColor(named: "orange"), for: .normal)
@@ -57,8 +66,4 @@ extension MySubjectsViewController: mySubjectsViewDelegate{
         }
         viewState = false
     }
-    
-    
-    
-    
 }

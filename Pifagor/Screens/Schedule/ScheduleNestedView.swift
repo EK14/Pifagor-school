@@ -22,7 +22,7 @@ class ScheduleNestedView: UIView {
         return label
     }()
     
-    private var schedule = [[Schedule]]()
+    var schedule = [[Schedule]]()
     
     var currentDay = 0
     
@@ -30,19 +30,34 @@ class ScheduleNestedView: UIView {
 
     override init(frame: CGRect) {
         super.init(frame: frame)
-        async{ [weak self] in
-            schedule = try await AuthService.shared.getScheduleData()
+        loadData { res in
+            if res{
+                self.setupView()
+                self.setupCollectionView()
+                self.setupNoScheduleLabel()
+            }
         }
-        backgroundColor = UIColor(named: "lightgray")
-        translatesAutoresizingMaskIntoConstraints = false
-        layer.cornerRadius = 40
-        layer.masksToBounds = true
-        setupCollectionView()
-        setupNoScheduleLabel()
     }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+    
+    private func setupView(){
+        backgroundColor = UIColor(named: "lightgray")
+        translatesAutoresizingMaskIntoConstraints = false
+        layer.cornerRadius = 40
+        layer.masksToBounds = true
+    }
+    
+    func loadData(completion: @escaping (Bool) -> ()){
+        Task.init(operation: { [weak self] in
+            self?.schedule = try await AuthService.shared.getScheduleData()
+            AuthService.shared.setupPersonalSchedule(allSubjects: self!.schedule) { mySchedule in
+                self?.schedule = mySchedule
+                completion(true)
+            }
+        })
     }
     
     private func setupCollectionView(){

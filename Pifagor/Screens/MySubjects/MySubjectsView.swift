@@ -10,6 +10,7 @@ import UIKit
 protocol mySubjectsViewDelegate: AnyObject{
     func mySubjBtnTouched()
     func elseBtnTouched()
+    func addOrRemoveBtnDidTouched()
 }
 
 class MySubjectsView: UIView{
@@ -163,7 +164,6 @@ extension MySubjectsView: UICollectionViewDelegateFlowLayout, UICollectionViewDa
         else{
             if subjects["false"]?.count == 0{
                 noSubjects.isHidden = false
-                addSubjectsBtn.isHidden = false
                 collectionView.isHidden = true
             }
             else{
@@ -196,5 +196,6 @@ extension MySubjectsView: MySubjectsCollectionViewCellDelegate{
         subjects["\(state)"] = reverse
         collectionView.reloadData()
         AuthService.shared.updateSubjectsInformation(subjects: self.subjects)
+        delegate?.addOrRemoveBtnDidTouched()
     }
 }

@@ -61,7 +61,7 @@ class AuthService{
     private func setDefaultPhoto(){
         let image = UIImage(named: "default_profile_image")
         if let imageData = image?.jpegData(compressionQuality: 0.3){
-            AuthService.shared.setAvatar(image: imageData) { [weak self] res in
+            AuthService.shared.setAvatar(image: imageData) { res in
                 if !res{
                     print("photo have not downloaded")
                 }
@@ -72,7 +72,7 @@ class AuthService{
     public func signIn(with userRequest: SignInUserRequest, completion: @escaping (Error?) -> Void){
         Auth.auth().signIn(withEmail: userRequest.email, password: userRequest.password) { res, err in
             if let error = err{
-                completion(err)
+                completion(error)
                 return
             }
             else{
@@ -157,7 +157,7 @@ class AuthService{
         var data = [[Schedule]]()
         
         for x in 0...(weekDays.count-1){
-            let snap = try await db.collection(weekDays[x]).getDocuments()
+            let snap = try await db.collection("schedule").document("standart").collection(weekDays[x]).getDocuments()
             data.append([])
             for document in snap.documents{
                 let schedule = try document.data(as: Schedule.self)
@@ -190,4 +190,25 @@ class AuthService{
                 "subjects": subjects
             ])
     }
+    
+    func setupPersonalSchedule(allSubjects: [[Schedule]], completion: @escaping ([[Schedule]]) -> Void) {
+        self.getUserSubjects { [weak self] res in
+            guard let _ = self, let res = res["true"] else { return }
+            var mySchedule = [[Schedule]]()
+            
+            for x in 0...(allSubjects.count-1) {
+                mySchedule.append([])
+                if (allSubjects[x].count > 0) {
+                    for y in 0...(allSubjects[x].count-1) {
+                        if (res.contains(allSubjects[x][y].subject)) {
+                            mySchedule[x].append(allSubjects[x][y])
+                        }
+                    }
+                }
+            }
+            
+            completion(mySchedule)
+        }
+    }
+
 }

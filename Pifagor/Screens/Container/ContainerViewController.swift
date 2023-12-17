@@ -46,11 +46,17 @@ class ContainerViewController: UIViewController {
         view.addSubview(nav.view)
         nav.didMove(toParent: self)
         self.navVC = nav
+        
+        mySubjectsVC.delegate = self
     }
     
 }
 
-extension ContainerViewController: MyProfileViewControllerDelegate, MenuViewControllerDelegate{
+extension ContainerViewController: MyProfileViewControllerDelegate, MenuViewControllerDelegate, MySubjectsViewControllerDelegate{
+    func addOrRemoveBtnDidTouched() {
+        scheduleVC.loadData()
+    }
+    
     func didSelect(screen: MenuView.MenuOptions) {
         toggleMenu(completion: nil)
         switch screen{
