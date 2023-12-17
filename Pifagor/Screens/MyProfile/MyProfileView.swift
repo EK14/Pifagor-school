@@ -14,6 +14,15 @@ class MyProfileView: UIView {
     private let cellColors = ["orange", "blue", "purple", "green"]
     var balance: [Balance] = []
     
+    private lazy var noSubjects: UILabel = {
+        let label = UILabel()
+        label.font = UIFont.systemFont(ofSize: 26, weight: .bold)
+        label.text = "Предметов нет"
+        label.textColor = UIColor(named: "darkGray")
+        label.translatesAutoresizingMaskIntoConstraints = false
+        return label
+    }()
+    
     private lazy var headerTitle: UILabel = {
         let title = UILabel()
         title.text = "Баланс занятий"
@@ -26,13 +35,31 @@ class MyProfileView: UIView {
 
     override init(frame: CGRect) {
         super.init(frame: frame)
-        setupBackgroundColor()
-        setupCollectionView()
-        setupConstraints()
+        noSubjects.isHidden = true
+        self.setupCollectionView()
+        loadData { res in
+            if res{
+                self.setupBackgroundColor()
+                self.setupConstraints()
+            }
+        }
     }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+    
+    func loadData(completion: @escaping (Bool) -> ()){
+        AuthService.shared.getUserSubjects { res in
+            guard let res = res["true"] else { return }
+            var buffer = [Balance]()
+            for x in res{
+                buffer.append(contentsOf: [Balance(balance: 0, subject: x)])
+            }
+            self.balance = buffer
+            self.collectionView.reloadData()
+            completion(true)
+        }
     }
     
     private func setupBackgroundColor(){
@@ -46,6 +73,7 @@ class MyProfileView: UIView {
         addSubview(headerTitle)
         addSubview(collectionView)
         addSubview(myProfileHeadView)
+        addSubview(noSubjects)
         NSLayoutConstraint.activate([
             headerTitle.topAnchor.constraint(equalTo: myProfileHeadView.bottomAnchor, constant: 20),
             headerTitle.centerXAnchor.constraint(equalTo: centerXAnchor),
@@ -57,8 +85,13 @@ class MyProfileView: UIView {
             
             myProfileHeadView.topAnchor.constraint(equalTo: topAnchor),
             myProfileHeadView.trailingAnchor.constraint(equalTo: trailingAnchor),
-            myProfileHeadView.leadingAnchor.constraint(equalTo: leadingAnchor)
+            myProfileHeadView.leadingAnchor.constraint(equalTo: leadingAnchor),
+            
+            noSubjects.centerXAnchor.constraint(equalTo: centerXAnchor),
+            noSubjects.topAnchor.constraint(equalTo: headerTitle.bottomAnchor, constant: 200)
         ])
+        
+        print(headerTitle.bounds)
     }
     
     private func setupCollectionView(){
@@ -79,7 +112,8 @@ class MyProfileView: UIView {
 
 extension MyProfileView: UICollectionViewDelegateFlowLayout, UICollectionViewDataSource{
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        balance.count
+        noSubjects.isHidden = balance.count == 0 ? false: true
+        return balance.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {

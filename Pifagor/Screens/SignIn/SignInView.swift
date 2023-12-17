@@ -59,6 +59,7 @@ class SignInView: UIView {
         password.layer.cornerRadius = 10
         password.leftViewMode = .always
         password.leftView = UIView(frame: CGRect(x:0,y:0,width:16,height:0))
+        password.isSecureTextEntry = true
         return password
     }()
     

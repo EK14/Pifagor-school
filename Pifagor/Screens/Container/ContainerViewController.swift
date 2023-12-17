@@ -39,7 +39,7 @@ class ContainerViewController: UIViewController {
         
         //MyProfile
         myProfileVC.delegate = self
-        myProfileVC.view.addSubview(back)
+        didSelect(screen: MenuView.MenuOptions.myProfile)
         back.isHidden = true
         let nav = UINavigationController(rootViewController: myProfileVC)
         addChild(nav)
@@ -55,6 +55,7 @@ class ContainerViewController: UIViewController {
 extension ContainerViewController: MyProfileViewControllerDelegate, MenuViewControllerDelegate, MySubjectsViewControllerDelegate{
     func addOrRemoveBtnDidTouched() {
         scheduleVC.loadData()
+        myProfileVC.setBalanceInfo {}
     }
     
     func didSelect(screen: MenuView.MenuOptions) {
@@ -103,7 +104,9 @@ extension ContainerViewController: MyProfileViewControllerDelegate, MenuViewCont
         aboutUsVC.didMove(toParent: nil)
         homeworkVC.view.removeFromSuperview()
         homeworkVC.didMove(toParent: nil)
-        myProfileVC.view.addSubview(back)
+        myProfileVC.setBalanceInfo {
+            self.myProfileVC.view.addSubview(self.back)
+        }
     }
     
     func didChangedPhoto() {

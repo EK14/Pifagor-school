@@ -24,7 +24,6 @@ class MyProfileViewController: UIViewController {
         getClosuresRequests()
         updateAvatar()
         setupNavController()
-        setBalanceInfo()
     }
     
     override func loadView() {
@@ -65,8 +64,12 @@ class MyProfileViewController: UIViewController {
         present(picker, animated: true)
     }
     
-    private func setBalanceInfo(){
-        myProfileView.balance = balance
+    func setBalanceInfo(completion: @escaping () -> ()){
+        myProfileView.loadData { res in
+            if res{
+                completion()
+            }
+        }
     }
 
 }
