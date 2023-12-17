@@ -9,14 +9,23 @@ import UIKit
 
 class SubjectBalanceCollectionViewCell: UICollectionViewCell {
     
+    private var balance = Int()
+    
     private lazy var topupBalanceBtn: UIButton = {
         let btn = UIButton()
         btn.setTitle("Пополнить", for: .normal)
         btn.setTitleColor(.white, for: .normal)
         btn.translatesAutoresizingMaskIntoConstraints = false
         btn.layer.cornerRadius = 20
+        btn.addTarget(self, action: #selector(addMoney), for: .touchUpInside)
         return btn
     }()
+    
+    @objc
+    private func addMoney(){
+        balance += 1
+        amount.text = "\(self.balance) занят\(selectEnding(balance: self.balance))"
+    }
     
     private lazy var subjectName: UILabel = {
         let title = UILabel()
@@ -42,10 +51,11 @@ class SubjectBalanceCollectionViewCell: UICollectionViewCell {
     
     func setCell(color: UIColor, balance: Balance){
         self.contentView.layer.cornerRadius = 30
+        self.balance = balance.balance
         contentView.backgroundColor = color.withAlphaComponent(0.7)
         topupBalanceBtn.backgroundColor = color
         subjectName.text = balance.subject
-        amount.text = "\(balance.balance) занят\(selectEnding(balance: balance.balance))"
+        amount.text = "\(self.balance) занят\(selectEnding(balance: self.balance))"
         subjectName.numberOfLines = 0
         addSubview(topupBalanceBtn)
         addSubview(amount)
@@ -70,7 +80,7 @@ class SubjectBalanceCollectionViewCell: UICollectionViewCell {
             return "ий"
         } else if balance % 10 == 1{
             return "ие"
-        } else if balance == 2 || balance == 3 || balance == 4{
+        } else if balance % 10 == 2 || balance % 10 == 3 || balance % 10 == 4{
             return "ия"
         } else{
             return "ий"
