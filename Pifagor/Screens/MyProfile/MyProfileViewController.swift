@@ -17,7 +17,6 @@ class MyProfileViewController: UIViewController {
     
     let myProfileView = MyProfileView()
     weak var delegate: MyProfileViewControllerDelegate?
-    private let balance = [Balance(balance: 1, subject: "Математика"), Balance(balance: 5, subject: "Художественная мастерская"), Balance(balance: 2, subject: "Английский язык"), Balance(balance: 8, subject: "Логопед и развитие речи")]
 
     override func viewDidLoad() {
         super.viewDidLoad()

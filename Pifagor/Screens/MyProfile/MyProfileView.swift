@@ -91,7 +91,6 @@ class MyProfileView: UIView {
             noSubjects.topAnchor.constraint(equalTo: headerTitle.bottomAnchor, constant: 200)
         ])
         
-        print(headerTitle.bounds)
     }
     
     private func setupCollectionView(){
